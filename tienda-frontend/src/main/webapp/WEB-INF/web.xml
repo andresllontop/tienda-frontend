@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <!--ERROR PAGES-->
+    <error-page>
+        <error-code>400</error-code>
+        <location>/zerror_pages/400.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/zerror_pages/500.jsp</location>
+    </error-page>
+    
+    <!--PARAMETERS APLICATION-->
+    <!--UNIVERSITY-->
+    <context-param>
+        <param-name>name.university</param-name>
+        <param-value>UNIVERSIDAD NACIONAL PEDRO RUIZ GALLO</param-value>
+    </context-param>
+    <context-param>
+        <param-name>acronym.university</param-name>
+        <param-value>UNPRG</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url.page.university</param-name>
+        <param-value>http://www.unprg.edu.pe/univ/</param-value>
+    </context-param>
+    <!--OFFICE-->
+    <context-param>
+        <param-name>name.office</param-name>
+        <param-value>OFICINA GENERAL DE BIENESTAR UNIVERSITARIO</param-value>
+    </context-param>
+    <context-param>
+        <param-name>name.abbreviated.office</param-name>
+        <param-value>OGBU</param-value>
+    </context-param>
+    
+    <!--OTHERS-->
+    <context-param>
+        <param-name>name.page.base</param-name>
+        <param-value>SISBU - WEB APP</param-value>
+    </context-param>
+    
+    
+</web-app>
