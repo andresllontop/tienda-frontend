@@ -1,0 +1,15 @@
+.tienda-cursor-mano {
+	cursor: pointer;
+}
+
+.row-selected-celeste-claro {
+	background-color: #c2d8ec4f !important;
+}
+
+.icon-tienda {
+	display: initial !important;
+}
+
+.modal-lg-tienda {
+	max-width: 1050px !important;
+}

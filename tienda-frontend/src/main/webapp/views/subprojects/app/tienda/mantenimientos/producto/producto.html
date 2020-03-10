@@ -1,0 +1,1421 @@
+<div class="row">
+  <!-- Grid Item -->
+  <div class="col-xl-8 col-sm-6 col-12">
+    <!-- Card -->
+    <div class="dt-card">
+
+      <!-- Card FORMULARIO-->
+      <!-- Card Header -->
+      <div class="dt-card__header ">
+        <!-- Card Heading -->
+        <div class="dt-card__heading pl-5">
+          <h3 class="dt-card__title" id="TituloModalProducto"> Agregar Producto</h3>
+        </div>
+        <!-- /card heading -->
+      </div>
+      <!-- /card header -->
+      <!-- Card Body -->
+      <div class="dt-card__body pb-2 ">
+        <!-- Form -->
+        <form id="FrmProductoModal" class="form-row ">
+          <div class="col-sm-4 mb-3 ">
+            <label for="txtCodigoProducto">Código</label>
+            <input placeholder="Código del Producto" id="txtCodigoProducto" class="form-control form-control-sm"
+              type="text">
+          </div>
+          <!-- Categoria -->
+          <div class="col-sm-8 mb-3">
+            <label for="txtCategoriaProducto">Categoria</label>
+            <div class="input-group">
+              <input id="txtCategoriaProducto" type="text" class="form-control form-control-sm"
+                placeholder="Seleccionar Categoria -->">
+              <div class="input-group-append">
+                <button id="btnSeleccionarCategoria" class="btn btn-sm btn-primary dropdown-toggle" type="button">Click
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 mb-3 ">
+            <label for="txtNombreProducto">Producto</label>
+            <input placeholder="Nombre de la Producto" id="txtNombreProducto" class="form-control form-control-sm"
+              type="text">
+          </div>
+          <div class="col-sm-4 mb-3 ">
+            <label for="txtPrecioProducto">Precio</label>
+            <input placeholder="Precio del Producto" id="txtPrecioProducto" class="form-control form-control-sm"
+              type="text">
+          </div>
+          <div class="col-sm-4 mb-3">
+            <label for="selectEstadoProducto">Estado</label>
+            <select class="form-control form-control-sm" id="selectEstadoProducto">
+              <option>Activo</option>
+              <option>Inactivo</option>
+            </select>
+          </div>
+          <div class="col-sm-12">
+            <hr class="border-dashed my-4">
+          </div>
+          <div class="col-sm-12  mb-3">
+            <div class="dt-card__heading">
+              <h3 class="dt-card__title">Detalle del Producto</h3>
+            </div>
+          </div>
+          <!-- Unidad de Medida -->
+          <div class="col-sm-8 mb-3">
+            <label for="txtCodigoProducto">Unidad de Medida</label>
+            <div class="input-group">
+              <input type="text" class="form-control form-control-sm" placeholder="Seleccionar Unidad de Medida -->">
+              <div class="input-group-append">
+                <button class="btn btn-sm btn-primary dropdown-toggle" type="button">Click
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 mb-3 ">
+            <label for="txtExistenciaProducto">Existencia</label>
+            <input placeholder="Nombre de la Producto" id="txtExistenciaProducto" class="form-control form-control-sm"
+              type="text">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="txtFechaVencimientoProducto">Fecha de Vencimiento</label>
+            <div class="input-group date" id="date-time-picker-7" data-target-input="nearest">
+              <input id="txtFechaVencimientoProducto" type="text" class="form-control datetimepicker-input"
+                data-target="#date-time-picker-7" placeholder="dd/mm/aa hh:mm ">
+              <div class="input-group-append" data-target="#date-time-picker-7" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="icon icon-calendar"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Color -->
+          <div class="col-xl-2 col-sm-6 col-6 mb-3">
+            <label for="picker-15">Color</label>
+            <!-- Card Body -->
+            <div class="dt-card__body p-0">
+              <!-- Color Picker -->
+              <input type="text" id="picker-15">
+              <!-- /color picker -->
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <div class="col-xl-2 col-sm-6 col-6 mt-4 pt-2">
+            <button type="button" class="btn btn-dark mb-2">Agregar</button>
+          </div>
+
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-sm btn-primary">Aceptar</button>
+            <button type="reset" class="btn btn-sm btn-danger">Limpiar</button>
+          </div>
+        </form>
+        <!-- /form -->
+
+      </div>
+      <!-- /card body -->
+      <!-- /card -->
+
+    </div>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6 col-12">
+
+    <!-- Card -->
+    <div class="dt-card">
+
+      <!-- Card Header -->
+      <div class="dt-card__header mb-4">
+
+        <!-- Card Heading -->
+        <div class="dt-card__heading">
+          <h3 class="dt-card__title">Detalles del Producto</h3>
+        </div>
+        <!-- /card heading -->
+      </div>
+      <!-- /card header -->
+
+      <!-- Card Body -->
+      <div class="dt-card__body p-0 ps-custom-scrollbar ps ps--active-y" style="max-height: 433px;">
+
+        <!-- Widget-->
+        <div class="dt-widget dt-widget-xl dt-widget-separator dt-widget-hover">
+          <!-- Widget Item -->
+          <div class="dt-widget__item">
+
+            <!-- Widget Image -->
+            <div class="dt-widget__img">
+              <!-- Avatar -->
+              <i class="icon icon-chatbull text-indigo icon-3x"></i>
+              <!-- /avatar -->
+            </div>
+            <!-- /widget image -->
+
+            <!-- Shape -->
+            <div class="dot-shape dot-shape-lg  mx-5" style="background-color: aqua;"></div>
+            <!-- /shape -->
+
+            <!-- Widget Info -->
+            <div class="dt-widget__info align-text-top">
+              <a class="dt-widget__title" href="javascript:void(0)">ChatBull minor bug fixes</a>
+            </div>
+            <!-- /widget info -->
+
+            <!-- Widget Extra -->
+            <div class="dt-widget__extra">
+              <div class="dt-task">
+                <div class="dt-task__number">20 unidades</div>
+                <a class="dt-task__redirect" href="javascript:void(0)"> <i class="icon icon-open-new-tab"></i>
+                </a>
+              </div>
+            </div>
+            <!-- /widget extra -->
+          </div>
+          <!-- /widget item -->
+          <!-- Widget Item -->
+          <div class="dt-widget__item">
+
+            <!-- Widget Image -->
+            <div class="dt-widget__img">
+              <!-- Avatar -->
+              <i class="icon icon-chatbull text-indigo icon-3x"></i>
+              <!-- /avatar -->
+            </div>
+            <!-- /widget image -->
+
+            <!-- Shape -->
+            <div class="dot-shape dot-shape-lg  mx-5" style="background-color: aqua;"></div>
+            <!-- /shape -->
+
+            <!-- Widget Info -->
+            <div class="dt-widget__info align-text-top">
+              <a class="dt-widget__title" href="javascript:void(0)">ChatBull minor bug fixes</a>
+            </div>
+            <!-- /widget info -->
+
+            <!-- Widget Extra -->
+            <div class="dt-widget__extra">
+              <div class="dt-task">
+                <div class="dt-task__number">20 unidades</div>
+                <a class="dt-task__redirect" href="javascript:void(0)"> <i class="icon icon-open-new-tab"></i>
+                </a>
+              </div>
+            </div>
+            <!-- /widget extra -->
+          </div>
+          <!-- /widget item -->
+          <!-- Widget Item -->
+          <div class="dt-widget__item">
+
+            <!-- Widget Image -->
+            <div class="dt-widget__img">
+              <!-- Avatar -->
+              <i class="icon icon-chatbull text-indigo icon-3x"></i>
+              <!-- /avatar -->
+            </div>
+            <!-- /widget image -->
+
+            <!-- Shape -->
+            <div class="dot-shape dot-shape-lg  mx-5" style="background-color: aqua;"></div>
+            <!-- /shape -->
+
+            <!-- Widget Info -->
+            <div class="dt-widget__info align-text-top">
+              <a class="dt-widget__title" href="javascript:void(0)">ChatBull minor bug fixes</a>
+            </div>
+            <!-- /widget info -->
+
+            <!-- Widget Extra -->
+            <div class="dt-widget__extra">
+              <div class="dt-task">
+                <div class="dt-task__number">20 unidades</div>
+                <a class="dt-task__redirect" href="javascript:void(0)"> <i class="icon icon-open-new-tab"></i>
+                </a>
+              </div>
+            </div>
+            <!-- /widget extra -->
+          </div>
+          <!-- /widget item -->
+          <!-- Widget Item -->
+          <div class="dt-widget__item">
+
+            <!-- Widget Image -->
+            <div class="dt-widget__img">
+              <!-- Avatar -->
+              <i class="icon icon-chatbull text-indigo icon-3x"></i>
+              <!-- /avatar -->
+            </div>
+            <!-- /widget image -->
+
+            <!-- Shape -->
+            <div class="dot-shape dot-shape-lg  mx-5" style="background-color: aqua;"></div>
+            <!-- /shape -->
+
+            <!-- Widget Info -->
+            <div class="dt-widget__info align-text-top">
+              <a class="dt-widget__title" href="javascript:void(0)">ChatBull minor bug fixes</a>
+            </div>
+            <!-- /widget info -->
+
+            <!-- Widget Extra -->
+            <div class="dt-widget__extra">
+              <div class="dt-task">
+                <div class="dt-task__number">20 unidades</div>
+                <a class="dt-task__redirect" href="javascript:void(0)"> <i class="icon icon-open-new-tab"></i>
+                </a>
+              </div>
+            </div>
+            <!-- /widget extra -->
+          </div>
+          <!-- /widget item -->
+          <!-- Widget Item -->
+          <div class="dt-widget__item">
+
+            <!-- Widget Image -->
+            <div class="dt-widget__img">
+              <!-- Avatar -->
+              <i class="icon icon-chatbull text-indigo icon-3x"></i>
+              <!-- /avatar -->
+            </div>
+            <!-- /widget image -->
+
+            <!-- Shape -->
+            <div class="dot-shape dot-shape-lg  mx-5" style="background-color: aqua;"></div>
+            <!-- /shape -->
+
+            <!-- Widget Info -->
+            <div class="dt-widget__info align-text-top">
+              <a class="dt-widget__title" href="javascript:void(0)">ChatBull minor bug fixes</a>
+            </div>
+            <!-- /widget info -->
+
+            <!-- Widget Extra -->
+            <div class="dt-widget__extra">
+              <div class="dt-task">
+                <div class="dt-task__number">20 unidades</div>
+                <a class="dt-task__redirect" href="javascript:void(0)"> <i class="icon icon-open-new-tab"></i>
+                </a>
+              </div>
+            </div>
+            <!-- /widget extra -->
+          </div>
+          <!-- /widget item -->
+        </div>
+        <!-- /widget-->
+        <!-- /card body -->
+      </div>
+
+    </div>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+
+
+<!-- Card LISTADO DE PRODUCTOS-->
+<!-- Card -->
+<div class="card">
+  <!-- Card header -->
+  <div class="card-header card-nav border-bottom-0">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h3 class="dt-card__title">Properties</h3>
+
+      <!-- Search Box -->
+      <form class="search-box ml-2 max-w-250">
+        <input class="form-control form-control-sm" placeholder="Search in app..." value="" type="search">
+        <span class="search-icon">
+          <i class="icon icon-search icon-lg"></i>
+        </span>
+      </form>
+      <!-- /search box -->
+    </div>
+    <ul class="card-header-tabs nav nav-tabs nav-tabs-sm nav-scroll mx-0" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#popular" role="tab" aria-controls="popular"
+          aria-selected="true">Popular</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#new-jercy" role="tab" aria-controls="new-jercy"
+          aria-selected="true">New Jercy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#colorado" role="tab" aria-controls="colorado"
+          aria-selected="true">Colorado</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#albama" role="tab" aria-controls="albama"
+          aria-selected="true">Albama</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /card header -->
+
+  <!-- Tab Content-->
+  <div class="tab-content">
+
+    <!-- Tab panel -->
+    <div id="popular" class="tab-pane active">
+
+      <!-- Card Body -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-6">
+            <!-- Card -->
+            <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+              <!-- Slider -->
+              <div class="dt-slider rounded-xl overflow-hidden order-sm-1">
+                <div class="owl-carousel owl-theme">
+                  <img src="https://via.placeholder.com/640x420" alt="Property">
+                  <img src="https://via.placeholder.com/640x420" alt="Living Room">
+                  <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+                </div>
+
+              </div>
+              <!-- /slider -->
+
+              <!-- Card Stacked -->
+              <div class="card-stacked order-sm-2">
+
+                <!-- Card Body -->
+                <div class="card-body py-sm-0 px-0 px-sm-6 px-md-8">
+
+                  <!-- Badges -->
+                  <span class="badge badge-sm badge-secondary text-uppercase mb-2 " data-toggle="tooltip"
+                    data-html="true" style="cursor: pointer;" title="" data-original-title="<em>Editar</em>">
+                    <i class="icon icon-task-manager icon-1x"></i></span>
+                  <!-- /badges -->
+                  <!-- Badges -->
+                  <span class="badge badge-sm  badge-danger text-uppercase mb-2 " style="cursor: pointer;"
+                    data-toggle="tooltip" data-html="true" title="" data-original-title="<em>Eliminar</em>">
+                    <i class="icon icon-circle-remove-o icon-1x"></i></span>
+                  <!-- /badges -->
+
+                  <!-- Card Title-->
+                  <h3 class="card-title font-weight-normal text-truncate">
+                    Luxury family home at beach side
+                  </h3>
+                  <!-- Card Title-->
+
+                  <!-- Card Sub Title-->
+                  <h5 class="card-subtitle">South Western Ave</h5>
+                  <!-- /card sub title-->
+
+                  <!-- Pricing -->
+                  <div class="d-flex align-items-baseline price mb-1">
+                    <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                    <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+                  </div>
+                  <!-- /pricing -->
+
+                  <!-- Card Link -->
+                  <a class="card-link font-weight-500" href="javascript:void(0)">
+                    <span>Check in detail</span>
+                    <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+                  </a>
+                  <!-- /card link -->
+
+                </div>
+                <!-- /card body -->
+
+              </div>
+              <!-- /card stacked -->
+
+            </div>
+            <!-- /card -->
+          </div>
+          <div class="col-xl-6">
+            <!-- Card -->
+            <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+              <!-- Slider -->
+              <div class="dt-slider rounded-xl overflow-hidden order-sm-1">
+
+                <!-- Slider Header -->
+                <div class="dt-slider__header">
+
+                  <!-- Checkbox -->
+                  <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                    <input id="checkbox-2" type="checkbox">
+                    <label class="font-weight-light dt-checkbox-content" for="checkbox-2">
+                      <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                      <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                    </label>
+                  </div>
+                  <!-- /checkbox -->
+                </div>
+                <!-- /slider header -->
+
+                <!-- Carousel -->
+                <div class="owl-carousel owl-theme">
+                  <img src="https://via.placeholder.com/640x420" alt="Property">
+                  <img src="https://via.placeholder.com/640x420" alt="Living Room">
+                  <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+                </div>
+                <!-- /carousel -->
+
+              </div>
+              <!-- /slider -->
+
+              <!-- Card Stacked -->
+              <div class="card-stacked order-sm-2">
+
+                <!-- Card Body -->
+                <div class="card-body py-sm-0 px-0 px-sm-6 px-md-8">
+
+                  <!-- Badges -->
+                  <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+                  <!-- /badges -->
+
+                  <!-- Card Title-->
+                  <h3 class="card-title font-weight-normal text-truncate">
+                    Rolex & Brown Housing
+                  </h3>
+                  <!-- Card Title-->
+
+                  <!-- Card Sub Title-->
+                  <h5 class="card-subtitle">South Western Ave</h5>
+                  <!-- /card sub title-->
+
+                  <!-- Pricing -->
+                  <div class="d-flex align-items-baseline price mb-1">
+                    <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                    <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+                  </div>
+                  <!-- /pricing -->
+
+                  <!-- Card Link -->
+                  <a class="card-link font-weight-500" href="javascript:void(0)">
+                    <span>Check in detail</span>
+                    <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+                  </a>
+                  <!-- /card link -->
+
+                </div>
+                <!-- /card body -->
+
+              </div>
+              <!-- /card stacked -->
+
+            </div>
+            <!-- /card -->
+          </div>
+          <div class="col-xl-6">
+            <!-- Card -->
+            <div class="card shadow-none horizontal mb-0">
+
+              <!-- Slider -->
+              <div class="dt-slider rounded-xl overflow-hidden order-sm-1">
+
+                <!-- Slider Header -->
+                <div class="dt-slider__header">
+
+                  <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+                  <!-- Checkbox -->
+                  <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                    <input id="checkbox-3" type="checkbox" checked>
+                    <label class="font-weight-light dt-checkbox-content" for="checkbox-3">
+                      <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                      <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                    </label>
+                  </div>
+                  <!-- /checkbox -->
+                </div>
+                <!-- /slider header -->
+
+                <!-- Carousel -->
+                <div class="owl-carousel owl-theme">
+                  <img src="https://via.placeholder.com/640x420" alt="Property">
+                  <img src="https://via.placeholder.com/640x420" alt="Living Room">
+                  <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+                </div>
+                <!-- /carousel -->
+
+              </div>
+              <!-- /slider -->
+
+              <!-- Card Stacked -->
+              <div class="card-stacked order-sm-2">
+
+                <!-- Card Body -->
+                <div class="card-body py-sm-0 px-0 px-sm-6 px-md-8">
+
+                  <!-- Badges -->
+                  <span class="badge badge-success text-uppercase mb-2">For Rent</span>
+                  <!-- /badges -->
+
+                  <!-- Card Title-->
+                  <h3 class="card-title font-weight-normal text-truncate">
+                    Seven Bros Studio Homes
+                  </h3>
+                  <!-- Card Title-->
+
+                  <!-- Card Sub Title-->
+                  <h5 class="card-subtitle">South Western Ave</h5>
+                  <!-- /card sub title-->
+
+                  <!-- Pricing -->
+                  <div class="d-flex align-items-baseline price mb-1">
+                    <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                    <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+                  </div>
+                  <!-- /pricing -->
+
+                  <!-- Card Link -->
+                  <a class="card-link font-weight-500" href="javascript:void(0)">
+                    <span>Check in detail</span>
+                    <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+                  </a>
+                  <!-- /card link -->
+
+                </div>
+                <!-- /card body -->
+
+              </div>
+              <!-- /card stacked -->
+
+            </div>
+            <!-- /card -->
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <!-- /card body -->
+
+    </div>
+    <!-- /tab panel -->
+
+    <!-- Tab panel -->
+    <div id="new-jercy" class="tab-pane">
+
+      <!-- Card Body -->
+      <div class="card-body">
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-4" type="checkbox">
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-4">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+            <!-- /carousel -->
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Rolex & Brown Housing
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-5" type="checkbox" checked>
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-5">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Luxury family home at beach side
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal mb-0">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-6" type="checkbox" checked>
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-6">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+            <!-- /carousel -->
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-success text-uppercase mb-2">For Rent</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Seven Bros Studio Homes
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+      </div>
+      <!-- /card body -->
+
+    </div>
+    <!-- /tab panel -->
+
+    <!-- Tab panel -->
+    <div id="colorado" class="tab-pane">
+
+      <!-- Card Body -->
+      <div class="card-body">
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-7" type="checkbox" checked>
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-7">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+            <!-- /carousel -->
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-success text-uppercase mb-2">For Rent</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Seven Bros Studio Homes
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-8" type="checkbox">
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-8">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+            <!-- /carousel -->
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Rolex & Brown Housing
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal mb-0">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-9" type="checkbox" checked>
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-9">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Luxury family home at beach side
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+      </div>
+      <!-- /card body -->
+
+    </div>
+    <!-- /tab panel -->
+
+    <!-- Tab panel -->
+    <div id="albama" class="tab-pane">
+
+      <!-- Card Body -->
+      <div class="card-body">
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-10" type="checkbox">
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-10">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+            <!-- /carousel -->
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Rolex & Brown Housing
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal rounded-0 pb-8 border-bottom">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-11" type="checkbox" checked>
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-11">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+            <!-- /carousel -->
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-success text-uppercase mb-2">For Rent</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Seven Bros Studio Homes
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+        <!-- Card -->
+        <div class="card shadow-none horizontal mb-0">
+
+          <!-- Slider -->
+          <div class="dt-slider rounded-xl overflow-hidden order-sm-2">
+
+            <!-- Slider Header -->
+            <div class="dt-slider__header">
+
+              <span class="badge bg-orange text-white text-uppercase">featured</span>
+
+              <!-- Checkbox -->
+              <div class="dt-checkbox dt-checkbox-icon dt-checkbox-only">
+                <input id="checkbox-12" type="checkbox" checked>
+                <label class="font-weight-light dt-checkbox-content" for="checkbox-12">
+                  <span class="unchecked"><i class="icon icon-heart-o text-white"></i></span>
+                  <span class="checked"><i class="icon icon-heart text-white"></i></span>
+                </label>
+              </div>
+              <!-- /checkbox -->
+            </div>
+            <!-- /slider header -->
+
+            <div class="owl-carousel owl-theme">
+              <img src="https://via.placeholder.com/640x420" alt="Property">
+              <img src="https://via.placeholder.com/640x420" alt="Living Room">
+              <img src="https://via.placeholder.com/640x420" alt="Bedroom">
+            </div>
+
+          </div>
+          <!-- /slider -->
+
+          <!-- Card Stacked -->
+          <div class="card-stacked order-sm-1">
+
+            <!-- Card Body -->
+            <div class="card-body py-sm-0 px-0 pr-sm-6 pr-md-8">
+
+              <!-- Badges -->
+              <span class="badge badge-secondary text-uppercase mb-2">For sale</span>
+              <!-- /badges -->
+
+              <!-- Card Title-->
+              <h3 class="card-title font-weight-normal text-truncate">
+                Luxury family home at beach side
+              </h3>
+              <!-- Card Title-->
+
+              <!-- Card Sub Title-->
+              <h5 class="card-subtitle">South Western Ave</h5>
+              <!-- /card sub title-->
+
+              <!-- Pricing -->
+              <div class="d-flex align-items-baseline price mb-1">
+                <span class="d-block text-primary font-weight-500 display-5 mr-1">$670,500</span>
+                <span class="d-inline-block text-light-gray f-12">$6705/sqft</span>
+              </div>
+              <!-- /pricing -->
+
+              <!-- Card Link -->
+              <a class="card-link font-weight-500" href="javascript:void(0)">
+                <span>Check in detail</span>
+                <i class="icon icon-arrow-long-right icon-lg ml-1"></i>
+              </a>
+              <!-- /card link -->
+
+            </div>
+            <!-- /card body -->
+
+          </div>
+          <!-- /card stacked -->
+
+        </div>
+        <!-- /card -->
+
+      </div>
+      <!-- /card body -->
+
+    </div>
+    <!-- /tab panel -->
+
+  </div>
+  <!-- /tab content-->
+
+</div>
+<!-- /card -->
+
+
+
+<!-- MODAL CARGANDO PRODUCTO-->
+<div class="modal fade" id="modalCargandoProducto" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  role="dialog" style="padding-top: 18%; overflow-y: visible; display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="progress" style="margin-bottom: 0px;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"" role=" progressbar"
+            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+            Cargando Productos. . .
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--T: CARGO SELECTED-->
+<div id="ventanaModalSelectedCategoriaC" class="modal" tabindex="-1" role="dialog" data-backdrop="static"
+  data-keyboard="false" style="padding-top: 2%; overflow-y: visible;background-color: rgba(0,0,0,.2)">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border-color: #0085c1; border-width: 4px;">
+      <div class="modal-header">
+        <h5 class="mb-0" id="titleManagerCategoriaC"><strong>[ 0 ]
+            CARGOS</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pb-0 pt-0">
+        <div class="row">
+          <div class="col-12">
+            <input type="hidden" id="pageCategoriaC" value="1">
+            <form id="FrmCategoriaC">
+              <div class="row mt-3">
+                <div class="input-group col-12">
+                  <input type="text" id="txtFilterCategoriaC" class="form-control form-control-sm mr-3"
+                    placeholder="INGRESE FILTRO . . .">
+                  <button type="submit" id="btnBuscarCategoriaC" class="btn btn-primary btn-xs" data-toggle="tooltip"
+                    title="Buscar Pregunta"><i class="fa fa-search" aria-hidden="true"></i>
+                    BUSCAR</button>
+                </div>
+              </div>
+            </form>
+            <div class="row pl-5 pr-5 mb-2">
+              <div class="table-responsive">
+                <table class="table mb-0 table-fluid">
+                  <thead>
+                    <tr>
+                      <th class="align-middle text-left">Categorias</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbodyCategoriaC">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row mt-2 mb-2" style="display: none">
+              <div class="col-sm-4 mt-2">
+                <select id="sizePageCategoriaC" class="form-control form-control-sm sisbu-cursor-mano combo-paginar">
+                  <option value="5">05</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                </select>
+              </div>
+              <div class="col-sm-8 mt-2">
+                <nav aria-label="Page navigation">
+                  <ul id="paginationCategoriaC" class="pagination justify-content-end">
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary btn-xs" data-dismiss="modal"
+          id="btnCancelSelectionCategoriaC"><i class="fas fa-ban"></i>
+          CANCELAR</button>
+        <button type="button" id="btn-selecionar-categoriac" class="btn btn-primary btn-xs"><i class="fas fa-check"></i>
+          SELECCIONAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modalCargandoSelectedCategoriaC" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  role="dialog" aria-hidden="true" style="padding-top: 18%; overflow-y: visible;background-color: rgba(0,0,0,.3)">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="progress" style="margin-bottom: 0px;height: 15px;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+            aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+            Cargando Categorias. . .
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
