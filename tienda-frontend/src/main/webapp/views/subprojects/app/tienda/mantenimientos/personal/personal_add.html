@@ -1,0 +1,170 @@
+<!-- /card header -->
+<div id="addPersonalHtml" class="col-xl-12 order-xl-2 d-none">
+    <div class="" role="document">
+        <div class="p-2">
+            <!-- Card FORMULARIO-->
+            <!-- Card Header -->
+            <div class="modal-header dt-card__heading border-bottom-0">
+                <!-- Card Heading -->
+                <h3 class="dt-page__title" id="TituloModalPersonal"> Agregar Personal</h3>
+                <!-- /card heading -->
+
+            </div>
+            <div class="dt-masonry__item">
+                <!-- Card Body -->
+                <div class="dt-card__body tabs-container p-0 pb-2">
+
+                    <!-- Tab Navigation -->
+                    <ul class="nav nav-tabs " role="tablist">
+                        <li class="nav-item ">
+                            <a class="nav-link active" data-toggle="tab" href="#tab-pane-3" role="tab"
+                                aria-controls="tab-pane-3" aria-selected="false">Datos Personales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab-pane-4" role="tab"
+                                aria-controls="tab-pane-4" aria-selected="false">Datos Usuario
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!-- /tab navigation -->
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+
+                        <!-- Tab Pane -->
+                        <div id="tab-pane-3" class="tab-pane active">
+
+                            <div class="form-row card-body">
+                                <div class="col-lg-3 col-sm-3 col-6 form-group">
+                                    <label for="txtTipoDocumentoPersonal">Tipo de Documento</label>
+                                    <select class="form-control form-control-sm" id="txtTipoDocumentoPersonal">
+                                        <option value="0">Seleccione...</option>
+                                        <option value="1">DNI</option>
+                                        <option value="2">CARNET DE EXTRANJERIA</option>
+                                        <option value="3">OTRO</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-6 form-group ">
+                                    <label for="txtDocumentoPersonal">Documento</label>
+                                    <input placeholder="Documento del Personal" id="txtDocumentoPersonal"
+                                        class="form-control form-control-sm" type="text" maxlength="8">
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-6 form-group">
+                                    <label for="txtSexoPersonal">Sexo</label>
+                                    <select class="form-control form-control-sm" id="txtSexoPersonal">
+                                        <option value="0">Seleccione...</option>
+                                        <option value="1">MASCULINO</option>
+                                        <option value="2">FEMENINO</option>
+                                        <option value="3">OTRO</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-6 form-group ">
+                                    <label for="txtNombrePersonal">Nombres</label>
+                                    <input placeholder="Nombre del Personal" id="txtNombrePersonal"
+                                        class="form-control form-control-sm" maxlength="50" type="text">
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-6 form-group ">
+                                    <label for="txtApellidoPatPersonal">Apellido Paterno</label>
+                                    <input placeholder="Apellidos del Personal" id="txtApellidoPatPersonal"
+                                        class="form-control form-control-sm" type="text" maxlength="25">
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-6 form-group ">
+                                    <label for="txtApellidoMatPersonal">Apellidos Materno</label>
+                                    <input placeholder="Apellidos del Personal" id="txtApellidoMatPersonal"
+                                        class="form-control form-control-sm" type="text" maxlength="25">
+                                </div>
+                                <div class="col-sm-4 col-sm-4 col-8 form-group ">
+                                    <label for="txtEmailPersonal">Email</label>
+                                    <input placeholder="Email del Personal" id="txtEmailPersonal"
+                                        class="form-control form-control-sm" maxlength="50" type="email">
+                                </div>
+                                <div class="col-lg-2 col-sm-3 col-4 form-group ">
+                                    <label for="txtTelefonoPersonal">Celular</label>
+                                    <input placeholder="Número de celular" id="txtTelefonoPersonal"
+                                        class="form-control form-control-sm" type="text" maxlength="11">
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-8 form-group ">
+                                    <label for="txtDireccionPersonal">Dirección</label>
+                                    <input placeholder="Dirección del Personal" id="txtDireccionPersonal"
+                                        class="form-control form-control-sm" type="text" maxlength="50">
+                                </div>
+                                <div class="col-lg-2 col-sm-3 col-4 form-group">
+                                    <label for="txtEstadoPersonal">Estado</label>
+                                    <select class="form-control form-control-sm" id="txtEstadoPersonal">
+                                        <option value="0">INACTIVO</option>
+                                        <option selected value="1">ACTIVO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /tab pane-->
+
+                        <!-- Tab Pane -->
+                        <div id="tab-pane-4" class="tab-pane">
+                            <div class="form-row card-body">
+                                <div class="col-lg-3 col-sm-3 col-6 form-group ">
+                                    <label for="txtNombreUsuarioPersonal">Usuario</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="btn btn-sm btn-primary">
+                                                <i class="icon icon-user icon-fw icon-sm"></i>
+                                            </span>
+                                        </div>
+                                        <input id="txtNombreUsuarioPersonal" type="text"
+                                            class="form-control form-control-sm" placeholder="Username"
+                                            aria-label="Username">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-6 form-group ">
+                                    <label for="txtLoginUsuarioPersonal">Login</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="btn btn-sm btn-primary">
+                                                <i class="icon icon-wall icon-fw icon-sm"></i>
+                                            </span>
+                                        </div>
+                                        <input id="txtLoginUsuarioPersonal" type="text"
+                                            class="form-control form-control-sm" placeholder="Login" aria-label="Login">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-3 col-6 form-group ">
+                                    <label for="txtPassUsuarioPersonal">Pass</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="btn btn-sm btn-primary">
+                                                <i class="icon icon-forgot-pass icon-fw icon-sm"></i>
+                                            </span>
+                                        </div>
+                                        <input id="txtPassUsuarioPersonal" type="text"
+                                            class="form-control form-control-sm" placeholder="Username"
+                                            aria-label="Username">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /tab pane-->
+
+
+                    </div>
+                    <!-- /tab content -->
+
+                </div>
+                <!-- /card body -->
+
+            </div>
+            <!-- Form -->
+            <form id="FrmPersonalModal">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-sm btn-primary">Aceptar</button>
+                    <button id="btnCancelAddPersonalHtml" type="button"
+                        class="btn btn-sm btn-secondary">Cancelar</button>
+                </div>
+            </form>
+            <!-- /form -->
+        </div>
+    </div>
+</div>

@@ -16,16 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		event.preventDefault();
 		event.stopPropagation();
 	});
-
+	document.querySelector('#txtUsername').onclick = () => {
+		document
+			.getElementById('txtUsername')
+			.labels[0].classList.remove('sr-only');
+	};
+	document.querySelector('#txtPass').onclick = () => {
+		document.getElementById('txtPass').labels[0].classList.remove('sr-only');
+	};
 	$('#modalCargandoLogin').on('shown.bs.modal', function() {
 		processAjaxAuth();
 	});
-
-	document.querySelector('#txtUsername').focus();
 });
 
 function processAjaxAuth() {
 	let datosSerializados = $('#FrmLogin').serialize();
+	// console.log(datosSerializados);
 	$.ajax({
 		url: getHostAndContextAPI() + 'authentication/login',
 		type: 'POST',
@@ -69,7 +75,6 @@ function processAjaxAuth() {
 			}
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) {
-			console.log(errorThrown);
 			$('#modalCargandoLogin').modal('hide');
 			showAlertErrorRequest();
 		});

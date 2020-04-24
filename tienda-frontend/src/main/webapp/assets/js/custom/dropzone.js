@@ -1,6 +1,6 @@
-(function ($) {
-    "use strict";
+(function($) {
+	'use strict';
 
-    // $("#dropzone").dropzone({url: "/file/post"});
+	// $("#dropzone").dropzone({url: "/file/post"});
 
 })(jQuery);

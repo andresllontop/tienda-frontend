@@ -1,0 +1,288 @@
+<!-- VENTA LISTA-->
+<div id="listCompraHtml" class="col-xl-12 order-xl-3 p-1 d-block">
+    <!-- Card Header -->
+    <div class="dt-page__header mb-3 pl-3">
+        <!-- Card Heading -->
+        <h3 class="dt-page__title" id="TituloModalCompra"> Agregar Compra</h3>
+        <!-- /card heading -->
+    </div>
+    <!-- /card header -->
+    <div class="col-xl-12">
+        <label for="txtFechaCompra" class="col-form-label text-sm-right">Fecha
+            de
+            Venta </label>
+
+        <div class="input-group pb-3" id="txtFechaCompra" data-target-input="nearest">
+            <input type="text" class="form-control form-control-sm datetimepicker-input" data-target="#txtFechaCompra">
+            <div class="input-group-append" data-target="#txtFechaCompra" data-toggle="datetimepicker">
+                <div class="input-group-text btn btn-primary"><i class="icon icon-calendar"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Dropdown -->
+        <div class="dropdown mb-2 d-inline-block w-100">
+            <!-- Dropdown Link -->
+            <form id="FrmPresentacionC" class="search-box right-side-icon mw-100">
+                <label for="txtFilterProductoC" class="sr-only"></label>
+                <input type="search" id="txtFilterProductoC" class="form-control form-control-sm "
+                    placeholder="Buscar en app..." data-toggle="tooltip" data-placement="left"
+                    data-original-title="Buscar">
+                <button type="submit" class="search-icon"><i class="icon icon-search icon-lg"></i></button>
+
+            </form>
+            <!-- /dropdown link -->
+
+            <!-- Dropdown Menu -->
+            <div id="tbodyProductoC" class="dropdown-menu w-100">
+
+            </div>
+            <!-- /dropdown menu -->
+
+        </div>
+        <!-- /dropdown -->
+    </div>
+
+    <div class="col-xl-12">
+        <!-- Grid Item -->
+        <div class="w-100 ps-custom-scrollbar mb-6">
+            <div class="col-12 card m-0 bg-primary p-1 mb-3" style="min-width: 760px;">
+                <div class="card mb-0">
+                    <!-- Widget Item -->
+                    <div class="dt-widget__item border-bottom pr-4">
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-truncate ">
+                            <div class="text-left">
+                                <a class="dt-card__title f-14" href="javascript:void(0)">Producto</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info border-left pl-2 pr-2" style=" max-width: 146px;">
+                            <div class="text-center">
+                                <a class="dt-card__title f-14" href="javascript:void(0)">Cantidad</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info border-left pl-2 pr-2" style=" max-width: 146px;">
+                            <div class="text-center">
+                                <a class="dt-card__title f-14" href="javascript:void(0)">Precio U.</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info border-left pl-2 pr-2" style=" max-width: 100px;">
+                            <div class=" text-center">
+                                <a class="dt-card__title f-14" href="javascript:void(0)">Sub Total</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info border-left pl-2 pr-2" style=" max-width: 146px;">
+                            <div class="text-center">
+                                <a class="dt-card__title f-14" href="javascript:void(0)">Total</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                    </div>
+                    <!-- /widgets item -->
+                    <div id="tbodyEntradaDetalle" class="dt-widget dt-widget-hover-bg text-light-gray">
+                        <!-- Widget Item -->
+                        <div class="dt-widget__item border-bottom pr-4">
+                            <!-- Widget Info -->
+                            <div class="dt-widget__info text-truncate ">
+                                <div class="dt-card__title text-left">
+                                    <cite class="f-12" title="lISTA VACÍA">No hay Producto</cite>
+                                </div>
+                            </div>
+                            <!-- /widget info -->
+
+                        </div>
+                        <!-- /widgets item -->
+
+
+
+                    </div>
+                    <!-- Widget Item -->
+                    <div class="dt-widget__item border-top p-0 pr-4">
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-truncate ">
+                            <div class="dt-card__title text-left">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info   text-right">
+                            <div class="dt-card__title text-right">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info  text-right">
+                            <div class="text-right">
+                                <a class="h5 font-weight-400" href="javascript:void(0)">Sub Total</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info  text-right" style=" max-width: 125px;">
+                            <div class="text-right">
+                                <p id="txtSubTotal" class="col-form-label text-sm-right f-12">0</p>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                    </div>
+                    <!-- /widgets item -->
+                    <!-- Widget Item -->
+                    <div class="dt-widget__item p-0 pr-4">
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-truncate ">
+                            <div class="dt-card__title text-left">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info   text-right">
+                            <div class="dt-card__title text-right">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info   text-right">
+                            <div class="text-right">
+                                <a class="h5 font-weight-400" href="javascript:void(0)">Impuestos</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info  text-right" style=" max-width: 125px;">
+                            <div class="text-right">
+                                <p id="txtImpuesto" class="col-form-label text-sm-right f-12">0</p>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                    </div>
+                    <!-- /widgets item -->
+                    <!-- Widget Item -->
+                    <div class="dt-widget__item p-0 pt-1 pb-1 pr-4">
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-truncate ">
+                            <div class="dt-card__title text-left">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-right p-0" style=" max-width: 126px;min-width: 100px;">
+                            <div class="input-group search-box right-side-icon">
+                                <div class="input-group-prepend" style="height: 27px;">
+                                    <span
+                                        class="btn p-0 btn-dark btn-descuento-porcentaje-total-menos tienda-cursor-mano">
+                                        <i class="icon icon-minus icon-2x"></i></span>
+                                </div>
+
+                                <input id="txtDescuentoPorcentajeCompra" class="form-control form-control-sm pl-1 pr-4"
+                                    value="0" type="text" style="height: 27px;">
+                                <i class="search-icon icon icon-percentage mr-5"></i>
+                                <div class="input-group-append" style="height: 27px;">
+                                    <span class="btn p-0 btn-dark btn-descuento-porcentaje-total-mas"
+                                        style="width: 30px;">
+                                        <i class="icon icon-plus icon-2x"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-right" style=" max-width: 104px;">
+
+                            <div class="text-right">
+                                <label for="txtDescuentoCompra" class="h5 font-weight-400 mb-1">Descuento (-)</label>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-right" style=" max-width: 126px; min-width: 100px;">
+                            <div class="input-group search-box left-side-icon">
+                                <div class="input-group-prepend" style="height: 27px;">
+                                    <span class="btn p-0 btn-secondary btn-descuento-total-menos tienda-cursor-mano">
+                                        <i class="icon icon-minus icon-2x"></i></span>
+                                </div>
+
+                                <input id="txtDescuentoCompra" class="form-control form-control-sm pl-5 pr-0" value="0"
+                                    type="text" style="height: 27px;">
+
+                                <span class="search-icon ml-4 icon-moneda-tienda">S/.</span>
+
+                                <div class="input-group-append" style="height: 27px;">
+                                    <span class="btn p-0 btn-secondary btn-descuento-total-mas tienda-cursor-mano"
+                                        style="width: 30px; ">
+                                        <i class="icon icon-plus icon-2x"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                    </div>
+                    <!-- /widgets item -->
+                    <!-- Widget Item -->
+                    <div class="dt-widget__item  p-0 pr-4 pb-5">
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info text-truncate ">
+                            <div class="dt-card__title text-left">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info  text-right">
+                            <div class="dt-card__title text-right">
+
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info  text-right">
+                            <div class=" text-right">
+                                <a class="dt-card__title" href="javascript:void(0)">Total</a>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                        <!-- Widget Info -->
+                        <div class="dt-widget__info  text-right" style=" max-width: 125px;">
+                            <div class="text-right">
+                                <p id="txtTotal" class="dt-card__title f-14">0</p>
+                            </div>
+                        </div>
+                        <!-- /widget info -->
+                    </div>
+                    <!-- /widgets item -->
+
+
+                </div>
+            </div>
+        </div>
+        <!-- /grid item -->
+    </div>
+
+    <form id="FrmCompraModal">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-sm btn-outline-light">
+                <i class="icon icon-addnew icon-1x text-info"></i>
+                <small class="text-dark f-12 pulse-info">Registrar</small>
+            </button>
+            <button id="btnCancelAddPersonalHtml" type="button" class="btn btn-sm btn-secondary">Cancelar</button>
+        </div>
+    </form>
+</div>

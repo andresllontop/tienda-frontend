@@ -16173,7 +16173,7 @@ a.text-light-cyan:hover, a.text-light-cyan:focus {
 }
 .dt-customizer-toggle {
   position: fixed;
-  top: 130px;
+ bottom: 10px;
   right: 0;
   z-index: 100;
 }

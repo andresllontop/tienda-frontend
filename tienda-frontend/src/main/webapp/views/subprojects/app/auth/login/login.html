@@ -23,12 +23,8 @@
 					<!-- Brand logo https://via.placeholder.com/334x119 -->
 					<div class="dt-login__logo">
 						<a class="dt-brand__logo-link" href="./index">
-							<img
-								class="dt-brand__logo-img"
-								style="width: 120px; height: 50px"
-								src="./resources/dev/img/global/logo-blanco.png"
-								alt="logo-SisBu"
-							/>
+							<img class="dt-brand__logo-img" style="width: 120px; height: 50px"
+								src="./resources/dev/img/global/logo-blanco.png" alt="logo-SisBu" />
 						</a>
 					</div>
 					<!-- /brand logo -->
@@ -41,33 +37,37 @@
 					<div class="dt-login__content-inner" style="padding-bottom: 10px">
 						<!-- Form -->
 						<form id="FrmLogin">
+
 							<!-- Form Group -->
 							<div class="form-group">
-								<label class="sr-only" for="email-1">Username</label>
-								<input
-									type="text"
-									class="form-control"
-									aria-describedby="email-1"
-									placeholder="Username"
-									id="txtUsername"
-									name="login"
-								/>
+								<label class="sr-only" for="txtUsername">Username</label>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="btn btn-sm btn-primary">
+											<i class="icon icon-user icon-fw icon-sm"></i>
+										</span>
+									</div>
+									<input id="txtUsername" type="text" class="form-control " aria-describedby="email-1"
+										name="login" placeholder="Username">
+								</div>
 							</div>
 							<!-- /form group -->
 
 							<!-- Form Group -->
 							<div class="form-group">
-								<label class="sr-only" for="password-1">Password</label>
-								<input
-									type="password"
-									class="form-control"
-									id="txtPass"
-									name="password"
-									placeholder="Password"
-								/>
+								<label class="sr-only" for="txtPass">Password</label>
+
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="btn btn-sm btn-primary">
+											<i class="icon icon-forgot-pass icon-fw icon-sm"></i>
+										</span>
+									</div>
+									<input type="password" class="form-control " id="txtPass" name="password"
+										placeholder="Password">
+								</div>
 							</div>
 							<!-- /form group -->
-
 							<!-- Form Group -->
 							<div class="dt-checkbox d-block mb-6">
 								<input type="checkbox" id="checkbox-1" />
@@ -82,11 +82,8 @@
 								<button type="submit" class="btn btn-primary text-uppercase">
 									Ingresar
 								</button>
-								<span class="d-inline-block ml-4"
-									>O
-									<a class="d-inline-block font-weight-500 ml-3" href="signup"
-										>Crear una Cuenta</a
-									>
+								<span class="d-inline-block ml-4">O
+									<a class="d-inline-block font-weight-500 ml-3" href="signup">Crear una Cuenta</a>
 								</span>
 							</div>
 							<!-- /form group -->
@@ -99,11 +96,8 @@
 								<ul class="dt-list dt-list-sm dt-list-cm-0 ml-auto">
 									<li class="dt-list__item">
 										<!-- Fab Button -->
-										<a
-											href="https://www.facebook.com/BienestarUNPRG/"
-											target="_blank"
-											class="btn btn-outline-primary dt-fab-btn size-30"
-										>
+										<a href="https://www.facebook.com/BienestarUNPRG/" target="_blank"
+											class="btn btn-outline-primary dt-fab-btn size-30">
 											<i class="icon icon-facebook icon-xl"></i>
 										</a>
 										<!-- /fab button -->
@@ -111,10 +105,7 @@
 
 									<li class="dt-list__item">
 										<!-- Fab Button -->
-										<a
-											href="javascript:void(0)"
-											class="btn btn-outline-primary dt-fab-btn size-30"
-										>
+										<a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
 											<i class="icon icon-instagram icon-xl"></i>
 										</a>
 										<!-- /fab button -->
@@ -125,9 +116,8 @@
 							<!-- /form group -->
 
 							<div class="text-right">
-								<a class="d-inline-block font-weight-500 mt-4" href="./recovery"
-									>¿No puedes acceder a tu cuenta?</a
-								>
+								<a class="d-inline-block font-weight-500 mt-4" href="./recovery">¿No puedes acceder a tu
+									cuenta?</a>
 							</div>
 						</form>
 						<!-- /form -->
@@ -136,9 +126,8 @@
 
 					<!-- Login Content Footer -->
 					<div class="dt-login__content-footer text-center">
-						<a href="http://www.unprg.edu.pe/univ/" target="_blank"
-							>Universidad Nacional Pedro Ruiz Gallo</a
-						>
+						<a href="http://www.unprg.edu.pe/univ/" target="_blank">Universidad Nacional Pedro Ruiz
+							Gallo</a>
 					</div>
 					<!-- /login content footer -->
 				</div>
@@ -151,28 +140,14 @@
 </div>
 <!-- /root -->
 
-<div
-	class="modal fade"
-	id="modalCargandoLogin"
-	data-backdrop="static"
-	data-keyboard="false"
-	tabindex="-1"
-	role="dialog"
-	style="padding-top: 18%; overflow-y: visible; display: none;"
-	aria-hidden="true"
->
+<div class="modal fade" id="modalCargandoLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+	style="padding-top: 18%; overflow-y: visible; display: none;" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="progress" style="margin-bottom: 0px;">
-					<div
-						class="progress-bar progress-bar-striped progress-bar-animated"
-						role="progressbar"
-						aria-valuenow="100"
-						aria-valuemin="0"
-						aria-valuemax="100"
-						style="width:100%"
-					>
+					<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+						aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
 						Autenticando. . .
 					</div>
 				</div>

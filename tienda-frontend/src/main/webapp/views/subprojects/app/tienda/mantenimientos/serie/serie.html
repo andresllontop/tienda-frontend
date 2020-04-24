@@ -1,0 +1,47 @@
+<div class="col-xl-12 p-1 order-xl-3">
+  <!-- Card LISTADO DE SERIES-->
+  <div class="card p-1">
+    <!-- Card header -->
+    <div class="card-header card-nav pb-3">
+      <div class="float-left">
+        <input type="hidden" id="pageSerie" value="1">
+        <select id="sizePageSerie" class="form-control form-control-sm select2-single">
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+      <div class="float-right">
+        <!-- Search Box -->
+        <form id="FrmSerie" class="search-box ml-2 max-w-250 right-side-icon">
+          <input id="txtFilterSerie" class="form-control form-control-sm " placeholder="Search in app..."
+            data-toggle="tooltip" data-placement="left" data-original-title="Buscar" type="search" />
+          <button type="submit" class="search-icon">
+            <i class="icon icon-search icon-lg"></i></button>
+        </form>
+        <!-- /search box -->
+      </div>
+      <div class="d-flex justify-content-center text-center pt-2">
+        <h3 class="dt-card__title" id="titleManagerSerie">Categorías</h3>
+
+      </div>
+    </div>
+    <!-- /card header -->
+
+    <!-- Card Body -->
+    <div class="dt-card__body p-0 ps ps--active-y">
+      <!-- Widget -->
+      <div id="tbodySerie" class="dt-widget dt-widget-hover-bg text-light-gray">
+      </div>
+      <!-- /widget -->
+
+    </div>
+    <!-- /card body -->
+  </div>
+  <!-- pagination SERIE -->
+  <nav aria-label="Page navigation example">
+    <ul id="paginationSerie" class="pagination pagination-sm justify-content-center">
+    </ul>
+  </nav>
+  <!-- /pagination SERIE -->
+</div>

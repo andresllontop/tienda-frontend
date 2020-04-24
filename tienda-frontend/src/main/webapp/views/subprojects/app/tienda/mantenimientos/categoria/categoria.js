@@ -3,22 +3,22 @@ var categoriaSelected;
 var metodo = false;
 var beanRequestCategoria = new BeanRequest();
 document.addEventListener('DOMContentLoaded', function() {
-	//invocar funcion agregar
-	addCategoria();
 	//INICIALIZANDO VARIABLES DE SOLICITUD
-	beanRequestCategoria.entity_api = 'api/categorias';
+	beanRequestCategoria.entity_api = 'api/items';
 	beanRequestCategoria.operation = 'paginate';
 	beanRequestCategoria.type_request = 'GET';
-
+	//LISTAR
+	processAjaxCategoria();
+	//
 	$('#FrmCategoria').submit(function(event) {
 		beanRequestCategoria.operation = 'paginate';
 		beanRequestCategoria.type_request = 'GET';
-		$('#modalCargandoCategoria').modal('show');
+		processAjaxCategoria();
 		event.preventDefault();
 		event.stopPropagation();
 	});
 
-	$('#FrmCategoriaModal').submit(function(event) {
+	document.getElementById('FrmCategoriaModal').onsubmit = (event) => {
 		if (metodo) {
 			beanRequestCategoria.operation = 'update';
 			beanRequestCategoria.type_request = 'PUT';
@@ -30,26 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 		if (validateFormCategoria()) {
-			$('#modalCargandoCategoria').modal('show');
+			processAjaxCategoria();
 		}
 		event.preventDefault();
 		event.stopPropagation();
-	});
-
-	$('#modalCargandoCategoria').on('shown.bs.modal', function() {
-		processAjaxCategoria();
-		addCategoria();
-	});
-
-	$('#modalCargandoCategoria').on('hidden.bs.modal', function() {
-		beanRequestCategoria.operation = 'paginate';
-		beanRequestCategoria.type_request = 'GET';
-	});
-
-	$('#modalCargandoCategoria').modal('show');
+	};
 
 	$('#sizePageCategoria').change(function() {
-		$('#modalCargandoCategoria').modal('show');
+		processAjaxCategoria();
 	});
 });
 function addCategoria() {
@@ -61,70 +49,76 @@ function addCategoria() {
 }
 
 function processAjaxCategoria() {
+	SwalProgress();
+	showProgress(
+		'<i class="text-primary font-weight-600 display-8" style="font-size: 16px;">Cargando Categoría </i>'
+	);
 	let parameters_pagination = '';
 	let json = '';
-	if (beanRequestCategoria.operation == 'paginate') {
-		if (document.querySelector('#txtFilterCategoria').value != '') {
-			document.querySelector('#pageCategoria').value = 1;
-		}
-		parameters_pagination +=
-			'?nombre=' +
-			document.querySelector('#txtFilterCategoria').value.toUpperCase();
-		parameters_pagination +=
-			'&page=' + document.querySelector('#pageCategoria').value;
-		parameters_pagination +=
-			'&size=' + document.querySelector('#sizePageCategoria').value;
-	} else {
-		parameters_pagination = '';
-		if (beanRequestCategoria.operation == 'delete') {
-			parameters_pagination = '/' + categoriaSelected.idcategoria;
-		} else {
-			json = {
-				nombre: document.querySelector('#txtNombreCategoria').value
-			};
-			if (beanRequestCategoria.operation == 'update') {
-				json.idcategoria = categoriaSelected.idcategoria;
-			}
-		}
+	if (
+		beanRequestCategoria.operation == 'update' ||
+		beanRequestCategoria.operation == 'add'
+	) {
+		json = {
+			nombre: document.querySelector('#txtNombreCategoria').value.toUpperCase(),
+			indice: parseInt(1)
+		};
 	}
+	switch (beanRequestCategoria.operation) {
+		case 'delete':
+			parameters_pagination = '/' + categoriaSelected.iditem;
+			break;
 
-	$.ajax({
-		type: beanRequestCategoria.type_request,
-		url:
-			getHostAPI() +
-			beanRequestCategoria.entity_api +
-			'/' +
-			beanRequestCategoria.operation +
-			parameters_pagination,
-		headers: {
-			Authorization: 'Bearer ' + Cookies.get('tienda_token')
-		},
-		data: JSON.stringify(json),
-		contentType: 'application/json; charset=utf-8',
-		dataType: 'json'
-	})
-		.done(function(beanCrudResponse) {
-			console.log(beanCrudResponse);
-			$('#modalCargandoCategoria').modal('hide');
-			if (beanCrudResponse.messageServer !== undefined) {
-				if (beanCrudResponse.messageServer.toLowerCase() == 'ok') {
-					showAlertTopEnd('success', 'Acción realizada exitosamente');
-				} else {
-					showAlertTopEnd('warning', beanCrudResponse.messageServer);
-				}
+		case 'update':
+			json.iditem = categoriaSelected.iditem;
+			break;
+		case 'add':
+			break;
+
+		default:
+			if (
+				limpiar_campo(document.querySelector('#txtFilterCategoria').value) != ''
+			) {
+				document.querySelector('#pageCategoria').value = 1;
 			}
-			if (beanCrudResponse.beanPagination !== undefined) {
-				beanPaginationCategoria = beanCrudResponse.beanPagination;
-				toListCategoria(beanPaginationCategoria);
+			parameters_pagination +=
+				'?nombre=' +
+				limpiar_campo(document.querySelector('#txtFilterCategoria').value)
+					.toLowerCase()
+					.concat('1');
+			parameters_pagination +=
+				'&page=' + document.querySelector('#pageCategoria').value;
+			parameters_pagination +=
+				'&size=' + document.querySelector('#sizePageCategoria').value;
+			break;
+	}
+	var xhr = new XMLHttpRequest();
+	xhr = RequestServer(
+		beanRequestCategoria,
+		json,
+		parameters_pagination,
+		'Categoria'
+	);
+
+	xhr.onload = () => {
+		hideProgress();
+		beanCrudResponse = xhr.response;
+		if (beanCrudResponse.messageServer !== undefined) {
+			if (beanCrudResponse.messageServer.toLowerCase() == 'ok') {
+				showAlertTopEnd('success', 'Acción realizada exitosamente');
+			} else {
+				showAlertTopEnd('warning', beanCrudResponse.messageServer);
 			}
-		})
-		.fail(function(jqXHR, textStatus, errorThrown) {
-			$('#modalCargandoCategoria').modal('hide');
-			showAlertErrorRequest();
-			console.log(errorThrown);
-			console.log(jqXHR);
-			console.log(textStatus);
-		});
+			addCategoria();
+		}
+		if (beanCrudResponse.beanPagination !== undefined) {
+			beanPaginationCategoria = beanCrudResponse.beanPagination;
+			toListCategoria(beanPaginationCategoria);
+		}
+		addCategoria();
+		beanRequestCategoria.operation = 'paginate';
+		beanRequestCategoria.type_request = 'GET';
+	};
 }
 
 function toListCategoria(beanPagination) {
@@ -142,14 +136,6 @@ function toListCategoria(beanPagination) {
                         </p>
                     </div>
 					<!-- /widget info -->
-					<!-- Widget Info -->
-                    <div class="dt-widget__info text-truncate " >
-                        <p class="mb-0 text-truncate text-right">
-                           ACCIÓN
-                        </p>
-                    </div>
-                    <!-- /widget info -->
-                    
                 </div>
             `;
 		document.querySelector('#tbodyCategoria').innerHTML += row;
@@ -159,18 +145,22 @@ function toListCategoria(beanPagination) {
 				<div class="dt-widget__item">
 				  <!-- Widget Info -->
 				  <div class="dt-widget__info text-truncate">
-					<p class="dt-widget__subtitle text-truncate">
+				 	
+					<label for="${categoria.iditem}" 
+					class="dt-widget__subtitle text-truncate ">
 					${categoria.nombre}
-					</p>
+					</label>
 				  </div>
 				  <!-- /widget info -->
 		  
 				  <!-- Widget Extra -->
 				  <div class="dt-widget__extra">
+				  <div class="dt-task">
+				  <div class="dt-task__redirect">
 					<!-- Action Button Group -->
 					<div class="action-btn-group">
 					  <button
-					  idcategoria='${categoria.idcategoria}'
+					  id='${categoria.iditem}'
 						type="button"
 						class="btn btn-default text-success dt-fab-btn editar-categoria"
 						data-toggle="tooltip"
@@ -182,7 +172,7 @@ function toListCategoria(beanPagination) {
 					  </button>
 					  <button
 						type="button"
-						class="btn btn-default text-danger dt-fab-btn eliminar-categoria" idcategoria='${categoria.idcategoria}' 
+						class="btn btn-default text-danger dt-fab-btn eliminar-categoria" idcategoria='${categoria.iditem}' 
 						data-toggle="tooltip"
 						data-html="true"
 						title=""
@@ -190,8 +180,9 @@ function toListCategoria(beanPagination) {
 					  >
 						<i class="icon icon-circle-remove-o icon-1x"></i>
 					  </button>
-					</div>
+					  </div>
 					<!-- /action button group -->
+				  </div>
 				  </div>
 				  <!-- /widget extra -->
 				</div>
@@ -200,21 +191,18 @@ function toListCategoria(beanPagination) {
 			document.querySelector('#tbodyCategoria').innerHTML += row;
 			$('[data-toggle="tooltip"]').tooltip();
 		});
+
 		buildPagination(
 			beanPagination.count_filter,
 			parseInt(document.querySelector('#sizePageCategoria').value),
 			document.querySelector('#pageCategoria'),
-			$('#modalCargandoCategoria'),
+			processAjaxCategoria,
 			$('#paginationCategoria')
 		);
 		addEventsCategorias();
-		if (beanRequestCategoria.operation == 'paginate') {
-			document.querySelector('#txtFilterCategoria').focus();
-		}
 	} else {
 		destroyPagination($('#paginationCategoria'));
 		showAlertTopEnd('warning', 'No se encontraron resultados');
-		document.querySelector('#txtFilterCategoria').focus();
 	}
 }
 
@@ -222,7 +210,10 @@ function addEventsCategorias() {
 	document.querySelectorAll('.editar-categoria').forEach((btn) => {
 		//AGREGANDO EVENTO CLICK
 		btn.onclick = function() {
-			categoriaSelected = findByCategoria(btn.getAttribute('idcategoria'));
+			categoriaSelected = findByCategoria(btn.getAttribute('id'));
+			document.querySelectorAll('.dt-widget__subtitle').forEach((element) => {
+				removeClass(element, 'text-strike');
+			});
 			if (categoriaSelected != undefined) {
 				metodo = true;
 				document.querySelector('#txtNombreCategoria').value =
@@ -230,6 +221,7 @@ function addEventsCategorias() {
 				document.querySelector('#TituloModalCategoria').innerHTML =
 					'EDITAR CATEGORIA';
 				document.querySelector('#txtNombreCategoria').focus();
+				addClass(btn.labels[0], 'text-strike');
 			} else {
 				showAlertTopEnd(
 					'warning',
@@ -247,12 +239,16 @@ function addEventsCategorias() {
 			processAjaxCategoria();
 		};
 	});
+	document.querySelectorAll('.tooltip').forEach((btn) => {
+		removeClass(btn, 'show');
+		btn.innerHTML = '';
+	});
 }
 
 function findByCategoria(idcategoria) {
 	let categoria_;
 	beanPaginationCategoria.list.forEach((categoria) => {
-		if (idcategoria == categoria.idcategoria) {
+		if (idcategoria == categoria.iditem) {
 			categoria_ = categoria;
 			return;
 		}
@@ -261,7 +257,9 @@ function findByCategoria(idcategoria) {
 }
 
 function validateFormCategoria() {
-	if (document.querySelector('#txtNombreCategoria').value == '') {
+	if (
+		limpiar_campo(document.querySelector('#txtNombreCategoria').value) == ''
+	) {
 		showAlertTopEnd('warning', 'Por favor ingrese nombre');
 		document.querySelector('#txtNombrenCategoria').focus();
 		return false;

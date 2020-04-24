@@ -46,62 +46,32 @@ function setCookieSession(token, user) {
 function sendIndex() {
 	let user = Cookies.getJSON('tienda_user');
 	console.log(user);
-	if (user != undefined) {
-		switch (user.tipo_usuario) {
-			case 1:
-				//ATENDIDO
-				location.href = getContextAPP() + 'app/ate/index';
-				break;
-			case 2:
-				location.href = getContextAPP() + 'app/tienda/index';
-				break;
-		}
-	} else {
+	if (user == undefined) {
 		closeSession();
+		return;
+	}
+	switch (user.tipo_usuario) {
+		case 1:
+			//ATENDIDO
+			location.href = getContextAPP() + 'app/ate/index';
+			break;
+		case 2:
+			location.href = getContextAPP() + 'app/tienda/index';
+			break;
 	}
 }
 
 function getIdAreaUserSession() {
 	let url = window.location.href;
-	if (url.includes('obstetricia')) {
-		return 4;
-	}
-	if (url.includes('psicopedagogia')) {
-		return 6;
-	}
-	if (url.includes('social')) {
-		return 7;
-	}
+	if (url.includes('obstetricia')) return 4;
+
+	if (url.includes('psicopedagogia')) return 6;
+
+	if (url.includes('social')) return 7;
 }
 
 function setUrlFotoUserSession(url_foto) {
 	document.querySelectorAll('.dt-avatar').forEach((img) => {
 		img.setAttribute('src', url_foto);
 	});
-}
-
-function include_file(file, targetId) {
-	var ajax = new XMLHttpRequest();
-	ajax.open('GET', file, true);
-	ajax.addEventListener(
-		'load',
-		function() {
-			if (this.status == 200) {
-				document.querySelector('#' + targetId).innerHTML = this.responseText;
-				console.log('hola 200');
-			} else if (this.status == 404) {
-				document.querySelector('#app_root').innerHTML = '';
-				include_file('zinclude_error/app_404.html', 'app_root');
-				console.log('hola 404');
-			}
-		},
-		false
-	);
-	ajax.send();
-}
-
-function include_script(file) {
-	var script = document.createElement('script');
-	document.body.appendChild(script);
-	script.setAttribute('src', file);
 }

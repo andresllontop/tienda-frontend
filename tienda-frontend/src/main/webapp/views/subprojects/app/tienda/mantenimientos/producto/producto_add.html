@@ -1,0 +1,389 @@
+<!-- PRODUCTO ADD-->
+<div id="addProductoHtml" class="col-xl-12 p-1 order-xl-2 d-none">
+    <div class="p-1 dt-card" role=" document">
+        <div class="dt-card mb-0">
+            <!-- Card FORMULARIO-->
+            <!-- Card Header -->
+            <div class="modal-header dt-card__heading border-bottom-0 pb-0 text-center">
+                <!-- Card Heading -->
+                <h3 class="dt-page__title w-100 text-primary font-weight-500" id="TituloModalProducto"> Agregar Producto
+                </h3>
+                <!-- /card heading -->
+            </div>
+            <div class="col-xl-12 pt-3 ">
+                <div class="form-row ">
+
+                    <div class="col-xl-12 form-group text-center">
+                        <!-- Radio Button -->
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="radioConStockProducto" name="radioConStockProducto"
+                                class="custom-control-input" checked="">
+                            <label class="custom-control-label" for="radioConStockProducto">Incluye Stock
+                            </label>
+                        </div>
+                        <!-- /radio button -->
+
+                        <!-- Radio Button -->
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="radioSinStockProducto" name="radioConStockProducto"
+                                class="custom-control-input">
+                            <label class="custom-control-label" for="radioSinStockProducto">Sin Stock
+                            </label>
+                        </div>
+                        <!-- /radio button -->
+
+                    </div>
+                    <!-- Form -->
+                    <div class="col-lg-4 col-sm-6 col-6 form-group ">
+                        <label for="txtCodigoProducto">Codigo</label>
+                        <input placeholder="Nombre de la Producto" id="txtCodigoProducto"
+                            class="form-control form-control-sm" maxlength="11" type="text">
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-6 form-group">
+                        <label for="txtNombreProducto">Producto</label>
+                        <input placeholder="Nombre de la Producto" id="txtNombreProducto"
+                            class="form-control form-control-sm" maxlength="50" type="text">
+                    </div>
+
+                    <!-- Categoria -->
+                    <div class="col-lg-4  col-sm-6 form-group ">
+                        <label for="txtCategoriaProducto">Categoria</label>
+                        <div class="input-group">
+                            <input id="txtCategoriaProducto" type="text" class="form-control form-control-sm"
+                                placeholder="Seleccionar Categoria -->" disabled>
+                            <div class="input-group-append">
+                                <button id="btnSeleccionarCategoria" class="btn btn-sm btn-primary p-1" type="button"><i
+                                        class="icon icon-subscribe icon-fw icon-2x">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MARCA -->
+                    <div class="col-lg-4  col-sm-6 form-group">
+                        <label for="txtMarcaProducto">Marca</label>
+                        <div class="input-group">
+                            <input id="txtMarcaProducto" type="text" class="form-control form-control-sm" disabled
+                                placeholder="Seleccionar Marca del Producto -->">
+                            <div class="input-group-append">
+                                <button id="btnSeleccionarMarca" class="btn btn-sm btn-primary p-1" type="button"><i
+                                        class="icon icon-subscribe icon-fw icon-2x">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Unidad de Medida -->
+                    <div class="col-lg-4  col-sm-6 form-group">
+                        <label for="txtUnidadMedidaProducto">Unidad Medida</label>
+                        <div class="input-group">
+                            <input id="txtUnidadMedidaProducto" type="text" class="form-control form-control-sm"
+                                disabled placeholder="Seleccionar Unidad Medida -->">
+                            <div class="input-group-append">
+                                <button id="btnSeleccionarUnidadMedida" class="btn btn-sm btn-primary p-1"
+                                    type="button"><i class="icon icon-subscribe icon-fw icon-2x">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-3 col-6 form-group">
+                        <label for="txtEstadoProducto">Estado</label>
+                        <select id="txtEstadoProducto" class="form-control form-control-sm">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-sm-3 col-6 form-group ">
+                        <label for="txtCantidadMinimaProducto">Stock Mínimo</label>
+                        <input placeholder="Precio del Producto" id="txtCantidadMinimaProducto"
+                            class="form-control form-control-sm" value="5" type="number">
+                    </div>
+
+                    <!-- Cantidad Colores -->
+
+                    <div class="col-xl-12 col-sm-8 form-group">
+                        <p>
+                            <a id="buttonCollapseDetalleProducto" class="card-link font-weight-500 collapsed"
+                                href="#javascript:void(0)" role="button">
+                                <span>Ingresar Detalle Producto</span>
+                                <i class="icon icon-arrow-long-right icon-lg ml-1 animation-customizer"></i>
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseDetalleProducto">
+
+                            <div class="form-group mb-0">
+                                <div class="input-group mb-3">
+                                    <label for="txtColorProducto" class="sr-only">Colores</label>
+                                    <input id="txtColorProducto" type="text" value="#512da8">
+                                    <label for="txtLongitudProducto" class="sr-only">Colores</label>
+                                    <input id="txtLongitudProducto" type="text" class="form-control form-control-sm"
+                                        placeholder="Longitud">
+                                    <label for="txtCantidadProducto" class="sr-only">Cantidad </label>
+                                    <input id="txtCantidadProducto" placeholder="Cantidad"
+                                        class="form-control form-control-sm " type="number">
+                                    <div class="input-group-append">
+                                        <button id="btnAgregarDetalleProducto" class="btn btn-sm btn-primary"
+                                            data-toggle="tooltip" data-html="true" title=""
+                                            data-original-title="<em>Agregar Detalle Producto</em>" type="button"><i
+                                                id="iconAgregarDetalleProducto"
+                                                class="icon icon-circle-add-o icon-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 dt-card m-0">
+                                <!-- Widget -->
+                                <div id="tbodyDetalleProducto"
+                                    class="dt-widget dt-widget-hl-item dt-widget-hl-item-space dt-widget-mb-item dt-widget-hover-bg dt-card m-0">
+
+                                </div>
+                                <!-- /widget -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Precios-->
+                    <div class="col-lg-12 form-group">
+                        <label for="txtImpuestoProducto">Impuestos</label>
+                        <label for="txtImpuestoProducto" class="float-right">Impuesto selectivo al consumo</label>
+                        <div class="input-group search-box right-side-icon mw-100">
+                            <select class="form-control form-control-sm btn btn-sm btn-outline-primary"
+                                id="selectImpuestoProducto">
+                                <option value="1">
+                                    IGV (18.00%)
+                                </option>
+                                <option value="2">
+                                    [Gratuita] Inafecto - Retiro por convenio colectivo (0.00%)
+                                </option>
+                                <option value="3">
+                                    [Gratuita] Inafecto - Retiro por Muestras Medicas (0.00%)
+                                </option>
+                                <option value="4">
+                                    [Gratuita] Exonerado – Transferencia gratuita (0.00%)
+                                </option>
+                                <option value="5">
+                                    [Gratuita] Inafecto - Transferencia gratuita (0.00%)
+                                </option>
+                                <option value="6">
+                                    [Gratuita] Gravado - Retiro (0.00%)
+                                </option>
+                                <option value="7">
+                                    [Gratuita] Gravado - Retiro por donación (0.00%)
+                                </option>
+                                <option value="8">
+                                    Inafecto (0.00%)
+                                </option>
+                                <option value="9">
+                                    Exonerado (0.00%)
+                                </option>
+                                <option value="10">
+                                    Exportación (0.00%)
+                                </option>
+                                <option value="11">
+                                    [Gratuita] Gravado - Retiro por premio (0.00%)
+                                </option>
+                            </select>
+                            <div class="input-group-prepend">
+
+                                <span class="btn btn-sm input-group-text p-2 btn-primary btn-impuesto-mas"> <i
+                                        class="icon icon-pointer-up"></i></span>
+                            </div>
+                            <input id="txtImpuestoProducto" class="form-control form-control-sm text-right pr-6"
+                                type="text" value="18">
+                            <button type="button" class="search-icon mr-6">%</button>
+                            <div class="input-group-append">
+                                <span class="btn btn-sm  input-group-text p-2 btn-primary btn-impuesto-menos">
+                                    <i class="icon icon-pointer-down"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-9 ">
+                        <label for="txtPrecioCompraProducto">Precio inicial de Compra</label>
+                        <div class="input-group search-box left-side-icon mw-100">
+                            <select class=" custom-select custom-select-sm btn btn-outline-primary"
+                                id="txtMonedaCompraProducto" style="max-width: 100px;">
+                                <option selected value="1">Soles</option>
+                                <option value="2">Dolar</option>
+                                <option value="3">Yen</option>
+                                <option value="4">Euro</option>
+                            </select>
+                            <input id="txtPrecioCompraProducto" placeholder="Precio del Producto"
+                                class="form-control form-control-sm " type="text" style="padding-left: 24px;">
+                            <span class="icon-moneda-tienda icon-moneda-tienda-left">S/.</span>
+                            <small class="form-text w-100">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" id="checkImpuestoCompra" name="customcheckboxInline1"
+                                        class="custom-control-input" checked="">
+                                    <label class="custom-control-label" for="checkImpuestoCompra">
+                                        El precio incluye impuestos
+                                        <small class="sr-only">
+                                            <span class="dt-separator-v">&nbsp;</span>
+                                            <span class="precio-compra-opcionaligv h6 font-weight-500"></span>
+                                            <span class="dt-separator-v">&nbsp;</span>
+                                            <span class="precio-compra-igv h6 font-weight-500"></span>
+                                        </small>
+                                </div>
+                            </small>
+                        </div>
+
+                    </div>
+                    <div class="col-3 ">
+                        <label for="txtCantidadTotalProducto">Cantidad Total</label>
+                        <input id="txtCantidadTotalProducto" placeholder="cantidad" class="form-control form-control-sm"
+                            type="number" value="1">
+
+                    </div>
+
+                    <div class="col-lg-12  form-row pr-0">
+                        <label for="txtPrecioGananciaProducto" class="col-sm-3 col-form-label ">Ganancia</label>
+
+                        <div class="col-sm-9 pr-0">
+                            <div class="input-group search-box right-side-icon mw-100">
+                                <input id="txtPrecioGananciaProducto" placeholder="Ganancia" id="txtPrecioProducto"
+                                    class="form-control form-control-sm" type="text" style="padding-left: 24px;">
+                                <span class="icon-moneda-tienda">S/.</span>
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-sm p-0 btn-dark btn-ganancia-menos">
+                                        <i class="icon icon-minus icon-2x"></i>
+                                    </button>
+
+                                    <span class="input-group-text p-2" style="background-color:#ffffff;">(+)</span>
+                                </div>
+                                <input id="txtPrecioGananciaPorcentajeProducto"
+                                    class="form-control form-control-sm text-left pr-5" type="text" value="50"
+                                    style="max-width: 100px;">
+                                <button type="button" class="search-icon" style="right: 36px;">%</button>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-sm p-0 btn-dark btn-ganancia-mas"> <i
+                                            class="icon icon-plus icon-2x"></i></button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12  form-row pr-0">
+                        <label for="txtDescuentoProducto" class="col-sm-3 col-form-label ">Descuento Mínimo</label>
+
+                        <div class="col-sm-9 pr-0">
+                            <div class="input-group search-box right-side-icon" style="max-width: 100%;">
+                                <input id="txtDescuentoProducto" placeholder="Descuento Mínimo"
+                                    class="form-control form-control-sm" type="text" value="0"
+                                    style="padding-left: 24px;">
+                                <span class="icon-moneda-tienda">S/.</span>
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-sm p-0 btn-danger btn-descuento-menos">
+                                        <i class="icon icon-minus icon-2x"></i>
+                                    </button>
+                                    <span class="input-group-text p-2" style="background-color:#ffffff;">(-)</span>
+                                </div>
+                                <input id="txtDescuentoPorcentajeProducto"
+                                    class="form-control form-control-sm text-left pr-5" type="text" value="0"
+                                    style="max-width: 100px;">
+                                <button type="button" class="search-icon" style="right: 36px;">%</button>
+                                <div class="input-group-append">
+
+                                    <button type="button" class="btn btn-sm p-0 btn-danger btn-descuento-mas"> <i
+                                            class="icon icon-plus icon-2x">
+                                        </i>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12  form-row pr-0">
+                        <label for="txtPrecioVentaProducto" class="col-sm-3 col-form-label ">Precio de Venta </label>
+
+                        <div class="col-sm-9 pr-0">
+                            <div class="input-group search-box right-side-icon mw-100">
+                                <select class="custom-select custom-select-sm btn btn-outline-primary"
+                                    id="txtMonedaVentaProducto" style="max-width: 100px;">
+                                    <option selected value="1">Soles</option>
+                                    <option value="2">Dolar</option>
+                                    <option value="3">Yen</option>
+                                    <option value="4">Euro</option>
+                                </select>
+                                <input id="txtPrecioVentaProducto" placeholder="Precio de Venta"
+                                    class="form-control form-control-sm" type="text" style="padding-left: 24px;">
+                                <span class="icon-moneda-tienda icon-moneda-tienda-left">S/.</span>
+
+                            </div>
+
+                            <small class="form-text w-100 ">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" id="checkImpuestoVenta" name="customcheckboxInline1"
+                                        class="custom-control-input" checked="">
+                                    <label class="custom-control-label" for="checkImpuestoVenta">
+                                        El precio incluye impuestos <small class="sr-only">
+                                            <span class="dt-separator-v">&nbsp;</span>
+                                            <span class="precio-venta-opcionaligv h6 font-weight-500"></span>
+                                            <span class="dt-separator-v">&nbsp;</span>
+                                            <span class="precio-venta-igv h6 font-weight-500"></span>
+
+                                        </small></label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" id="customcheckboxInline5" name="customcheckboxInline1"
+                                        class="custom-control-input" checked="">
+                                    <label class="custom-control-label" for="customcheckboxInline5">
+                                        Impuesto Bolsas Plásticas</label>
+                                </div>
+
+                            </small>
+
+                            <small class="form-text w-100 sr-only">
+                                <span class="precio-ganancia-descuento-conigv h6 font-weight-500"></span>
+                            </small>
+                            <small class="form-text w-100 sr-only">
+                                <span class="precio-venta-descuento-conigv h6 font-weight-500"></span>
+                            </small>
+
+
+
+                            <small class="form-text w-100 sr-only">
+                                <span class="precio-ganacia-sinigv"></span>
+                            </small>
+                            <small class="form-text w-100 sr-only">
+                                <span class="precio-ganacia-igv"></span>
+                            </small>
+                            <small class="form-text w-100 sr-only">
+                                <span class="precio-ganacia-conigv"></span>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <hr class="border-dashed my-5">
+                    </div>
+
+                    <div class="col-lg-12 col-sm-12 form-group">
+                        <label for="txtDescripcionProducto">Descripcion</label>
+                        <textarea class="form-control form-control-sm" id="txtDescripcionProducto" rows="2"
+                            placeholder="Textarea"></textarea>
+                    </div>
+
+                    <div class="col-lg-12 col-sm-12 form-group">
+                        <form id="FrmProductoModal">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-sm btn-primary">Aceptar</button>
+                                <button id="btnCancelAddProductoHtml" type="reset"
+                                    class="btn btn-sm btn-secondary">Limpiar</button>
+                            </div>
+                        </form>
+                        <!-- /form -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /PRODUCTO ADD-->

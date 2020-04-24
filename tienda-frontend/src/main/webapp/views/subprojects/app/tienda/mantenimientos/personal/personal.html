@@ -1,239 +1,55 @@
-<!-- Card FORMULARIO-->
-<div class="dt-card ">
-  <!-- Card Header -->
-  <div class="dt-card__header ">
-    <!-- Card Heading -->
-    <div class="dt-card__heading pl-5">
-      <h3 class="dt-card__title" id="TituloModalPersonal"> Agregar Personal</h3>
-    </div>
-    <!-- /card heading -->
-  </div>
-  <!-- /card header -->
-  <!-- Card Body -->
-  <div class="dt-card__body pb-2 ">
-    <!-- Form -->
-    <form id="FrmPersonalModal" class="form-row ">
-      <div class="col-lg-2 col-sm-3 col-6 mb-3">
-        <label for="selectTipoDocumentoProducto">Tipo de Documento</label>
-        <select class="form-control form-control-sm" id="selectTipoDocumentoProducto">
-          <option>DNI</option>
-          <option>Inactivo</option>
-        </select>
-      </div>
-      <div class="col-lg-2 col-sm-3 col-6 mb-3">
-        <label for="txtDocumentoPersonal">Documento</label>
-        <input placeholder="Documento del Personal" id="txtDocumentoPersonal" class="form-control form-control-sm"
-          type="text">
-      </div>
-      <div class="col-lg-4 col-sm-3 col-6 mb-3">
-        <label for="txtNombrePersonal">Nombres</label>
-        <input placeholder="Nombre del Personal" id="txtNombrePersonal" class="form-control form-control-sm"
-          type="text">
-      </div>
-      <div class="col-lg-4 col-sm-3 col-6 mb-3">
-        <label for="txtApellidoPersonal">Apellidos</label>
-        <input placeholder="Apellidos del Personal" id="txtApellidoPersonal" class="form-control form-control-sm"
-          type="text">
-      </div>
-      <div class="col-sm-4 mb-3">
-        <label for="txtEmailPersonal">Email</label>
-        <input placeholder="Email del Personal" id="txtEmailPersonal" class="form-control form-control-sm" type="email">
-      </div>
-      <div class="col-sm-4 mb-3">
-        <label for="txtTelefonoPersonal">Telefono</label>
-        <input placeholder="Telefono del Personal" id="txtTelefonoPersonal" class="form-control form-control-sm"
-          type="text">
-      </div>
-      <div class="col-sm-4 mb-3">
-        <label for="txtDireccionPersonal">Dirección</label>
-        <input placeholder="Direccion del Personal" id="txtDireccionPersonal" class="form-control form-control-sm"
-          type="text">
-      </div>
-
-      <div class="col-sm-4 ">
-        <button type="submit" class="btn btn-sm btn-primary">Aceptar</button>
-        <button type="reset" class="btn btn-sm btn-outline-danger">Limpiar</button>
-      </div>
-    </form>
-    <!-- /form -->
-
-  </div>
-  <!-- /card body -->
-
-</div>
-<!-- /card -->
-
-<!-- Card LISTADO DE PERSONALS-->
-<div class="card">
-  <!-- Card header -->
-  <div class="card-header card-nav border-bottom-0 pb-0 ">
-    <div class="d-flex align-items-center justify-content-between ">
-      <h3 class="dt-card__title" id="titleManagerPersonal">Personales</h3>
-      <input type="hidden" id="pagePersonal" value="1">
-      <!-- Search Box -->
-      <form id="FrmPersonal" class="search-box ml-2 max-w-250">
-        <input id="txtFilterPersonal" class="form-control form-control-sm" placeholder="Search in app..."
-          type="search" />
-        <span class="search-icon">
-          <i class="icon icon-search icon-lg"></i>
-        </span>
-      </form>
-      <!-- /search box -->
-    </div>
-    <div class="dt-widget__item" style="border-bottom-style: solid;">
-      <!-- Widget Info -->
-      <div class="dt-widget__info text-truncate">
-        <div class="dt-widget__title text-truncate ">
-          <a>Nombre</a>
-        </div>
-      </div>
-      <!-- /widget info -->
-
-      <!-- Widget Extra -->
-      <div class="dt-widget__extra">
-        <!-- Show Content -->
-        <div class="show-content">
-          <!-- Widget Info -->
-          <div class="dt-widget__info text-truncate">
-            <div class="dt-widget__title text-truncate ">
-              <a>Acción</a>
-            </div>
-          </div>
-          <!-- /widget info -->
-        </div>
-        <!-- /show content -->
-      </div>
-      <!-- /widget extra -->
-    </div>
-  </div>
-  <!-- /card header -->
-
-  <!-- Card Body -->
-  <div class="dt-card__body p-0 ps ps--active-y">
-    <!-- Widget -->
-    <div id="tbodyPersonal" class="dt-widget dt-widget-hover-bg text-light-gray">
-      <!-- Widget Item -->
-      <div class="dt-widget__item">
-        <!-- Widget Info -->
-        <div class="dt-widget__info text-truncate">
-          <p class="dt-widget__subtitle text-truncate">
-            POLOS
-          </p>
-        </div>
-        <!-- /widget info -->
-
-        <!-- Widget Extra -->
-        <div class="dt-widget__extra">
-          <!-- Action Button Group -->
-          <div class="action-btn-group">
-            <button type="button" class="btn btn-default text-success dt-fab-btn" data-toggle="tooltip" data-html="true"
-              title="" data-original-title="<em>Editar</em>">
-              <i class="icon icon-task-manager icon-1x"></i>
-            </button>
-            <button type="button" class="btn btn-default text-danger dt-fab-btn" data-toggle="tooltip" data-html="true"
-              title="" data-original-title="<em>Eliminar</em>">
-              <i class="icon icon-circle-remove-o icon-1x"></i>
-            </button>
-          </div>
-          <!-- /action button group -->
-        </div>
-        <!-- /widget extra -->
-      </div>
-      <!-- /widgets item -->
-
-      <!-- Widget Item -->
-      <div class="dt-widget__item">
-        <!-- Widget Info -->
-        <div class="dt-widget__info text-truncate">
-          <p class="dt-widget__subtitle text-truncate">
-            CAMISAS
-          </p>
-        </div>
-        <!-- /widget info -->
-
-        <!-- Widget Extra -->
-        <div class="dt-widget__extra">
-          <!-- Action Button Group -->
-          <div class="action-btn-group">
-            <button type="button" class="btn btn-default text-success dt-fab-btn" data-toggle="tooltip" data-html="true"
-              title="" data-original-title="<em>Editar</em>">
-              <i class="icon icon-task-manager icon-1x"></i>
-            </button>
-            <button type="button" class="btn btn-default text-danger dt-fab-btn" data-toggle="tooltip" data-html="true"
-              title="" data-original-title="<em>Eliminar</em>">
-              <i class="icon icon-circle-remove-o icon-1x"></i>
-            </button>
-          </div>
-          <!-- /action button group -->
-        </div>
-        <!-- /widget extra -->
-      </div>
-      <!-- /widgets item -->
-
-      <!-- Widget Item -->
-      <div class="dt-widget__item">
-        <!-- Widget Info -->
-        <div class="dt-widget__info text-truncate">
-          <p class="dt-widget__subtitle text-truncate">
-            PANTALONES
-          </p>
-        </div>
-        <!-- /widget info -->
-
-        <!-- Widget Extra -->
-        <div class="dt-widget__extra">
-          <!-- Action Button Group -->
-          <div class="action-btn-group">
-            <button type="button" class="btn btn-default text-success dt-fab-btn" data-toggle="tooltip" data-html="true"
-              title="" data-original-title="<em>Editar</em>">
-              <i class="icon icon-task-manager icon-1x"></i>
-            </button>
-            <button type="button" class="btn btn-default text-danger dt-fab-btn" data-toggle="tooltip" data-html="true"
-              title="" data-original-title="<em>Eliminar</em>">
-              <i class="icon icon-circle-remove-o icon-1x"></i>
-            </button>
-          </div>
-          <!-- /action button group -->
-        </div>
-        <!-- /widget extra -->
-      </div>
-      <!-- /widgets item -->
-    </div>
-    <!-- /widget -->
-    <!-- pagination PERSONAL -->
-    <div class="row ml-1 p-3">
-      <div class="col-md-2 col-sm-3 col-4">
+<!-- /card header -->
+<div id="listPersonalHtml" class="col-xl-12 p-1 d-block">
+  <!-- Card LISTADO DE PERSONALS-->
+  <div class="card p-1">
+    <!-- Card header -->
+    <div class="card-header card-nav pb-3">
+      <div class="float-left">
+        <input id="pagePersonal" type="hidden" value="1">
         <select id="sizePagePersonal" class="form-control form-control-sm select2-single">
           <option value="10">10</option>
           <option value="15">15</option>
           <option value="20">20</option>
         </select>
       </div>
-      <div class="col-md-10 col-sm-9 col-8">
-        <nav aria-label="Page navigation example">
-          <ul id="paginationPersonal" class="pagination pagination-sm justify-content-end">
-          </ul>
-        </nav>
+      <div class="float-right ml-3">
+        <button id="btnAgregarNewPersonal" class="btn btn-sm btn-primary" data-toggle="tooltip" data-html="true"
+          title="" data-original-title="<em>Agregar Nuevo Personal</em>" type="button">
+          <i class="icon icon-circle-add-o icon-lg pulse-light"></i>
+        </button>
       </div>
-    </div>
-    <!-- /pagination PERSONAL -->
-  </div>
-  <!-- /card body -->
-</div>
+      <div class="float-right">
+        <!-- Search Box -->
+        <form id="FrmPersonal" class="search-box right-side-icon mw-100">
+          <input id="txtFilterPersonal" class="form-control form-control-sm" placeholder="Search in app..."
+            type="search" />
+          <span class="search-icon">
+            <i class="icon icon-search icon-lg"></i>
+          </span>
+        </form>
+        <!-- /search box -->
 
-<!-- MODAL CARGANDO PERSONAL-->
-<div class="modal fade" id="modalCargandoPersonal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-  role="dialog" style="padding-top: 18%; overflow-y: visible; display: none;" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="progress" style="margin-bottom: 0px;">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"" role=" progressbar"
-            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-            Cargando Personales. . .
-          </div>
-        </div>
+      </div>
+
+      <div class="d-flex justify-content-center text-center pt-2">
+        <h3 class="dt-card__title " id="titleManagerPersonal"></h3>
       </div>
     </div>
+    <!-- /card header -->
+    <!-- Card Body -->
+    <div class="dt-card__body p-0 ps ps--active-y">
+      <!-- Widget -->
+      <div id="tbodyPersonal" class="dt-widget dt-widget-hover-bg text-light-gray">
+      </div>
+      <!-- /widget -->
+
+    </div>
+    <!-- /card body -->
   </div>
+  <!-- pagination PERSONAL -->
+  <nav aria-label="Page navigation example">
+    <ul id="paginationPersonal" class="pagination pagination-sm justify-content-center">
+    </ul>
+  </nav>
+  <!-- /pagination PERSONAL -->
 </div>

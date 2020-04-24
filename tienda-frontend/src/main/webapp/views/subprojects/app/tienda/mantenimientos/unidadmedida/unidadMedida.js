@@ -5,7 +5,6 @@ var beanRequestUnidadMedida = new BeanRequest();
 document.addEventListener('DOMContentLoaded', function() {
 	//invocar funcion agregar
 	addUnidadMedida();
-
 	//INICIALIZANDO VARIABLES DE SOLICITUD
 	beanRequestUnidadMedida.entity_api = 'api/unidadmedidas';
 	beanRequestUnidadMedida.operation = 'paginate';
@@ -14,9 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	$('#FrmUnidadMedida').submit(function(event) {
 		beanRequestUnidadMedida.operation = 'paginate';
 		beanRequestUnidadMedida.type_request = 'GET';
-		$('#modalCargandoUnidadMedida').modal('show');
 		event.preventDefault();
 		event.stopPropagation();
+		document.querySelector('#txtFilterUnidadMedida').value = limpiar_campo(
+			document.querySelector('#txtFilterUnidadMedida').value
+		);
+		processAjaxUnidadMedida();
 	});
 
 	$('#FrmUnidadMedidaModal').submit(function(event) {
@@ -30,26 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			beanRequestUnidadMedida.type_request = 'POST';
 		}
 		if (validateFormUnidadMedida()) {
-			$('#modalCargandoUnidadMedida').modal('show');
+			processAjaxUnidadMedida();
 		}
 		event.preventDefault();
 		event.stopPropagation();
 	});
 
-	$('#modalCargandoUnidadMedida').on('shown.bs.modal', function() {
-		processAjaxUnidadMedida();
-		addUnidadMedida();
-	});
-
-	$('#modalCargandoUnidadMedida').on('hidden.bs.modal', function() {
-		beanRequestUnidadMedida.operation = 'paginate';
-		beanRequestUnidadMedida.type_request = 'GET';
-	});
-
-	$('#modalCargandoUnidadMedida').modal('show');
+	processAjaxUnidadMedida();
 
 	$('#sizePageUnidadMedida').change(function() {
-		$('#modalCargandoUnidadMedida').modal('show');
+		processAjaxUnidadMedida();
 	});
 });
 function addUnidadMedida() {
@@ -62,71 +54,72 @@ function addUnidadMedida() {
 }
 
 function processAjaxUnidadMedida() {
+	SwalProgress();
+	showProgress(
+		'<i class="text-primary font-weight-600 display-8" style="font-size: 16px;">Cargando Unidad de Medida </i>'
+	);
 	let parameters_pagination = '';
 	let json = '';
-	if (beanRequestUnidadMedida.operation == 'paginate') {
-		if (document.querySelector('#txtFilterUnidadMedida').value != '') {
-			document.querySelector('#pageUnidadMedida').value = 1;
-		}
-		parameters_pagination +=
-			'?nombre=' +
-			document
-				.querySelector('#txtFilterUnidadMedida')
-				.value.toUpperCase()
-				.trim();
-		parameters_pagination +=
-			'&page=' + document.querySelector('#pageUnidadMedida').value;
-		parameters_pagination +=
-			'&size=' + document.querySelector('#sizePageUnidadMedida').value;
-	} else {
-		parameters_pagination = '';
-		if (beanRequestUnidadMedida.operation == 'delete') {
-			parameters_pagination = '/' + unidadMedidaSelected.idunidad_medida;
-		} else {
-			json = {
-				nombre: document.querySelector('#txtNombreUnidadMedida').value.trim(),
-				abreviatura: document
-					.querySelector('#txtAbreviaturaUnidadMedida')
-					.value.trim()
-			};
-			if (beanRequestUnidadMedida.operation == 'update') {
-				json.idunidad_medida = unidadMedidaSelected.idunidad_medida;
-			}
-		}
+	if (
+		beanRequestUnidadMedida.operation == 'update' ||
+		beanRequestUnidadMedida.operation == 'add'
+	) {
+		json = {
+			nombre: document.querySelector('#txtNombreUnidadMedida').value.trim(),
+			abreviatura: document
+				.querySelector('#txtAbreviaturaUnidadMedida')
+				.value.trim()
+		};
 	}
-	$.ajax({
-		url:
-			getHostAPI() +
-			beanRequestUnidadMedida.entity_api +
-			'/' +
-			beanRequestUnidadMedida.operation +
-			parameters_pagination,
-		type: beanRequestUnidadMedida.type_request,
-		headers: {
-			Authorization: 'Bearer ' + Cookies.get('tienda_token')
-		},
-		data: JSON.stringify(json),
-		contentType: 'application/json; charset=utf-8',
-		dataType: 'json'
-	})
-		.done(function(beanCrudResponse) {
-			$('#modalCargandoUnidadMedida').modal('hide');
-			if (beanCrudResponse.messageServer !== undefined) {
-				if (beanCrudResponse.messageServer.toLowerCase() == 'ok') {
-					showAlertTopEnd('success', 'Acción realizada exitosamente');
-				} else {
-					showAlertTopEnd('warning', beanCrudResponse.messageServer);
-				}
+	switch (beanRequestUnidadMedida.operation) {
+		case 'delete':
+			parameters_pagination = '/' + unidadMedidaSelected.idunidad_medida;
+			break;
+
+		case 'update':
+			json.idunidad_medida = unidadMedidaSelected.idunidad_medida;
+			break;
+		case 'add':
+			break;
+
+		default:
+			if (document.querySelector('#txtFilterUnidadMedida').value != '') {
+				document.querySelector('#pageUnidadMedida').value = 1;
 			}
-			if (beanCrudResponse.beanPagination !== undefined) {
-				beanPaginationUnidadMedida = beanCrudResponse.beanPagination;
-				toListUnidadMedida(beanPaginationUnidadMedida);
+			parameters_pagination +=
+				'?nombre=' +
+				limpiar_campo(
+					document.querySelector('#txtFilterUnidadMedida').value
+				).toLowerCase();
+			parameters_pagination +=
+				'&page=' + document.querySelector('#pageUnidadMedida').value;
+			parameters_pagination +=
+				'&size=' + document.querySelector('#sizePageUnidadMedida').value;
+			break;
+	}
+
+	var xhr = new XMLHttpRequest();
+	xhr = RequestServer(
+		beanRequestUnidadMedida,
+		json,
+		parameters_pagination,
+		'Unidad'
+	);
+	xhr.onload = () => {
+		hideProgress();
+		beanCrudResponse = xhr.response;
+		if (beanCrudResponse.messageServer !== undefined) {
+			if (beanCrudResponse.messageServer.toLowerCase() == 'ok') {
+				showAlertTopEnd('success', 'Acción realizada exitosamente');
+			} else {
+				showAlertTopEnd('warning', beanCrudResponse.messageServer);
 			}
-		})
-		.fail(function(jqXHR, textStatus, errorThrown) {
-			$('#modalCargandoUnidadMedida').modal('hide');
-			showAlertErrorRequest();
-		});
+		}
+		if (beanCrudResponse.beanPagination !== undefined) {
+			beanPaginationUnidadMedida = beanCrudResponse.beanPagination;
+			toListUnidadMedida(beanPaginationUnidadMedida);
+		}
+	};
 }
 
 function toListUnidadMedida(beanPagination) {
@@ -139,21 +132,14 @@ function toListUnidadMedida(beanPagination) {
         <div class="dt-widget__item border-success bg-primary text-white mb-0 pb-2"">
         <!-- Widget Info -->
         <div class="dt-widget__info text-truncate " >
-            <p class="mb-0 text-truncate ">
+            <p class="mb-0 text-truncate " style="border-right:0.1em solid">
                NOMBRE
             </p>
         </div>
         <!-- /widget info -->
         <div class="dt-widget__info text-truncate " >
-            <p class="mb-0 text-truncate text-center">
+            <p class="mb-0 text-truncate ">
                ABREVIATURA
-            </p>
-        </div>
-        <!-- /widget info -->
-        <!-- Widget Info -->
-        <div class="dt-widget__info text-truncate " >
-            <p class="mb-0 text-truncate text-right">
-               ACCIÓN
             </p>
         </div>
         <!-- /widget info -->
@@ -164,27 +150,13 @@ function toListUnidadMedida(beanPagination) {
 		beanPagination.list.forEach((unidadMedida) => {
 			row = `
             <!-- Widget Item -->
-            <div class="dt-widget__item">
-              <!-- Widget Info -->
-              <div class="dt-widget__info text-truncate">
-                <p class="dt-widget__subtitle text-truncate">
-                ${unidadMedida.nombre}
-                </p>
-              </div>
-              <!-- /widget info -->
-              <!-- Widget Info -->
-              <div class="dt-widget__info text-truncate">
-                <p class="dt-widget__subtitle text-truncate">
-                ${unidadMedida.abreviatura}
-                </p>
-              </div>
-              <!-- /widget info -->
-      
-              <!-- Widget Extra -->
-              <div class="dt-widget__extra">
-                <!-- Action Button Group -->
-                <div class="action-btn-group">
-                  <button
+			<div class="dt-widget__item">
+			<div class="dt-widget__extra text-left">
+                        <!-- Hide Content -->
+                        <div class="hide-content">
+                          <!-- Action Button Group -->
+                          <div class="action-btn-group">
+                          <button
                   idunidadMedida='${unidadMedida.idunidad_medida}'
                     type="button"
                     class="btn btn-default text-success dt-fab-btn editar-unidadMedida"
@@ -205,10 +177,27 @@ function toListUnidadMedida(beanPagination) {
                   >
                     <i class="icon icon-circle-remove-o icon-1x"></i>
                   </button>
-                </div>
-                <!-- /action button group -->
+                          </div>
+                          <!-- /action button group -->
+                        </div>
+                        <!-- /hide content -->
+                      </div>
+              <!-- Widget Info -->
+              <div class="dt-widget__info text-truncate">
+                <p class="dt-widget__subtitle text-truncate" style="border-right:0.1em solid">
+                ${unidadMedida.nombre}
+                </p>
               </div>
-              <!-- /widget extra -->
+              <!-- /widget info -->
+              <!-- Widget Info -->
+              <div class="dt-widget__info text-truncate">
+                <p class="dt-widget__subtitle text-truncate">
+                ${unidadMedida.abreviatura}
+                </p>
+              </div>
+              <!-- /widget info -->
+      
+              
             </div>
             <!-- /widgets item -->
             `;
@@ -219,7 +208,7 @@ function toListUnidadMedida(beanPagination) {
 			beanPagination.count_filter,
 			parseInt(document.querySelector('#sizePageUnidadMedida').value),
 			document.querySelector('#pageUnidadMedida'),
-			$('#modalCargandoUnidadMedida'),
+			processAjaxUnidadMedida,
 			$('#paginationUnidadMedida')
 		);
 		addEventsUnidadMedidas();
@@ -282,15 +271,24 @@ function findByUnidadMedida(idunidadMedida) {
 }
 
 function validateFormUnidadMedida() {
-	if (document.querySelector('#txtNombreUnidadMedida').value == '') {
-		showAlertTopEnd('warning', 'Por favor ingrese nombre');
-		document.querySelector('#txtNombreUnidadMedida').focus();
-		return false;
-	} else if (
-		document.querySelector('#txtAbreviaturaUnidadMedida').value == ''
-	) {
-		showAlertTopEnd('warning', 'Por favor ingrese abreviatura');
-		document.querySelector('#txtAbreviaturaUnidadMedida').focus();
+	let letra = letra_campo(
+		document.querySelector('#txtNombreUnidadMedida'),
+		document.querySelector('#txtAbreviaturaUnidadMedida')
+	);
+
+	if (letra != undefined) {
+		letra.focus();
+		letra.labels[0].style.fontWeight = '600';
+		addClass(letra.labels[0], 'text-danger');
+		if (letra.value == '') {
+			showAlertTopEnd('info', 'Por favor ingrese ' + letra.labels[0].innerText);
+		} else {
+			showAlertTopEnd(
+				'info',
+				'Por favor ingrese solo Letras al campo ' + letra.labels[0].innerText
+			);
+		}
+
 		return false;
 	}
 	return true;
